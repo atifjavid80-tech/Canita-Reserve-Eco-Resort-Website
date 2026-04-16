@@ -46,7 +46,7 @@
             gap: 15px;
         }
 
-        .logo-area {https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png}
+        .logo-area {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -505,7 +505,6 @@
             }
         }
 
-        /* Fix for very small screens */
         @media (max-width: 480px) {
             .header-inner {
                 flex-direction: column;
@@ -541,7 +540,13 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="logo-img">
+                <!-- Logo as text-based design (reliable, always shows) -->
+                <div class="logo-text" style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 0.65rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #1a4d2e;">SUNDROP RESORT</span>
+                    <span style="font-size: 0.7rem; letter-spacing: 0.5px; color: #2d8c5a; font-weight: 500;">CANITA RESERVE</span>
+                    <span style="font-size: 0.6rem; color: #6b7a6e;">CHEPO, PANAMA</span>
+                </div>
                 <span class="tagline" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
             <div class="nav-menu">
@@ -658,7 +663,13 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="footer-logo-img">
+                <!-- Footer logo as text (reliable, always shows) -->
+                <div class="footer-logo-text" style="margin-bottom: 15px;">
+                    <div style="font-size: 0.6rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
+                    <div style="font-size: 1rem; font-weight: 700; color: white;">SUNDROP RESORT</div>
+                    <div style="font-size: 0.65rem; letter-spacing: 0.5px; color: #8fbc9a;">CANITA RESERVE</div>
+                    <div style="font-size: 0.55rem; color: #8fbc9a;">CHEPO, PANAMA</div>
+                </div>
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
                 <p style="margin-top: 12px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
@@ -860,4 +871,3 @@
 </script>
 </body>
 </html>
-```
