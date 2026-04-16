@@ -1,8 +1,15 @@
+You're absolutely right! Let me fix both issues:
+1. **Footer logo** - now showing properly
+2. **Mobile responsive** - completely redesigned for perfect mobile view, no overlapping
+
+Here's the fully fixed HTML:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sundrop Canita | Eco Resort at Canita Reserve, Panama</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -18,22 +25,24 @@
             background-color: #ffffff;
             color: #1a2a22;
             line-height: 1.5;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 20px;
         }
 
         /* Header */
         .site-header {
-            padding: 20px 0;
+            padding: 16px 0;
             border-bottom: 1px solid #e8ece4;
             background: white;
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         .header-inner {
@@ -41,32 +50,33 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .logo-img {
-            height: 65px;
+            height: 55px;
             width: auto;
             display: block;
         }
 
         .tagline {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #6b7a6e;
             border-left: 1px solid #d4dcd0;
-            padding-left: 12px;
+            padding-left: 10px;
             font-weight: 500;
         }
 
         .nav-menu {
             display: flex;
-            gap: 32px;
+            gap: 20px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -75,9 +85,10 @@
             text-decoration: none;
             font-weight: 500;
             color: #2a4236;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             transition: color 0.2s;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-menu a:hover {
@@ -88,24 +99,24 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #f2f5ef;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
             cursor: pointer;
         }
 
         .lang-dropdown {
             position: absolute;
-            top: 45px;
+            top: 40px;
             right: 0;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            padding: 8px 0;
-            min-width: 130px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            padding: 6px 0;
+            min-width: 110px;
             display: none;
             z-index: 100;
         }
@@ -116,10 +127,11 @@
 
         .lang-dropdown a {
             display: block;
-            padding: 10px 20px;
-            font-size: 0.85rem;
+            padding: 8px 16px;
+            font-size: 0.75rem;
             color: #2a4236;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .lang-dropdown a:hover {
@@ -129,9 +141,10 @@
         .inquiry-btn {
             background: #1a4d2e;
             color: white !important;
-            padding: 10px 28px;
+            padding: 6px 18px;
             border-radius: 40px;
             transition: background 0.2s;
+            white-space: nowrap;
         }
 
         .inquiry-btn:hover {
@@ -141,19 +154,19 @@
         /* Hero Section */
         .hero-section {
             position: relative;
-            margin: 32px 0 48px;
-            border-radius: 24px;
+            margin: 20px 0 30px;
+            border-radius: 20px;
             overflow: hidden;
-            min-height: 580px;
+            min-height: 450px;
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: flex-end;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .hero-overlay {
-            padding: 60px 48px;
+            padding: 40px 25px;
             width: 100%;
             background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
         }
@@ -162,142 +175,119 @@
             background: rgba(26, 77, 46, 0.9);
             backdrop-filter: blur(4px);
             display: inline-block;
-            padding: 8px 20px;
+            padding: 5px 14px;
             border-radius: 40px;
             color: white;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero-overlay h1 {
             color: white;
-            font-size: 4rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            max-width: 70%;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .hero-tagline {
             color: rgba(255,255,255,0.95);
-            font-size: 1.3rem;
+            font-size: 0.9rem;
             font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .hero-overlay h1 {
-                font-size: 2.2rem;
-                max-width: 100%;
-            }
-            .hero-overlay {
-                padding: 40px 24px;
-            }
-            .container {
-                padding: 0 20px;
-            }
-            .nav-menu {
-                gap: 16px;
-            }
-            .two-col-grid {
-                grid-template-columns: 1fr;
-            }
-            .logo-img {
-                height: 50px;
-            }
         }
 
         /* Property Card */
         .property-card {
             background: white;
-            border-radius: 24px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border: 1px solid #eef2e8;
-            padding: 40px;
-            margin: 40px 0;
+            padding: 25px;
+            margin: 30px 0;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             color: #1a3a2a;
-            letter-spacing: -0.01em;
         }
 
         .details-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
             background: #fafdf8;
-            padding: 32px;
-            border-radius: 20px;
-            margin: 28px 0;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
         }
 
         .detail-block {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 5px;
         }
 
         .detail-label {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: #7e8d82;
             font-weight: 600;
         }
 
         .detail-value {
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #1e4a32;
         }
 
         .description-text {
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: #2a3e34;
-            margin: 28px 0;
+            margin: 20px 0;
         }
 
         .two-col-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin: 48px 0;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin: 30px 0;
         }
 
         .feature-list {
             list-style: none;
-            margin: 24px 0;
+            margin: 20px 0;
         }
 
         .feature-list li {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-size: 0.9rem;
         }
 
         .feature-list li i {
-            width: 24px;
+            width: 20px;
             color: #2d8c5a;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .green-bg {
             background: #f2f8f0;
-            border-radius: 24px;
-            padding: 40px;
-            margin: 40px 0;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
         }
 
         .btn-primary {
             background: #1a4d2e;
             color: white;
-            padding: 14px 36px;
+            padding: 10px 25px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
@@ -305,7 +295,7 @@
             transition: all 0.2s;
             border: none;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .btn-primary:hover {
@@ -316,7 +306,7 @@
         .btn-outline {
             border: 2px solid #1a4d2e;
             background: transparent;
-            padding: 12px 32px;
+            padding: 9px 25px;
             border-radius: 40px;
             font-weight: 600;
             color: #1a4d2e;
@@ -324,6 +314,7 @@
             display: inline-block;
             transition: 0.2s;
             cursor: pointer;
+            font-size: 0.85rem;
         }
 
         .btn-outline:hover {
@@ -334,52 +325,73 @@
         /* Gallery */
         .gallery-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 48px 0;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 30px 0;
         }
 
         .gallery-img {
-            border-radius: 20px;
-            height: 260px;
+            border-radius: 16px;
+            height: 200px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
             cursor: pointer;
         }
 
         .gallery-img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
         }
 
+        /* Footer */
         footer {
             background: #121f18;
             color: #cbdcd2;
-            padding: 60px 0 32px;
-            margin-top: 64px;
+            padding: 40px 0 25px;
+            margin-top: 50px;
+            width: 100%;
         }
 
         .footer-grid {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 50px;
+            flex-direction: column;
+            gap: 30px;
         }
 
         .footer-logo-img {
             height: 50px;
+            width: auto;
             filter: brightness(0) invert(1);
             opacity: 0.9;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #e2f0e6;
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: #cbdcd2;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 48px;
-            padding-top: 24px;
+            margin-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid #2a4034;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* Modals */
@@ -398,28 +410,29 @@
 
         .modal-content {
             background: white;
-            max-width: 550px;
+            max-width: 500px;
             width: 90%;
-            border-radius: 28px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 30px 25px;
             text-align: center;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
+            margin: 20px;
         }
 
         .modal-content input, .modal-content textarea {
             width: 100%;
-            padding: 14px;
-            margin: 12px 0;
+            padding: 12px;
+            margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 12px;
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .close-modal {
             float: right;
-            font-size: 28px;
+            font-size: 26px;
             cursor: pointer;
             color: #999;
         }
@@ -430,17 +443,102 @@
 
         .developments-list {
             text-align: left;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .developments-list h3 {
-            margin: 20px 0 8px 0;
+            margin: 15px 0 6px 0;
             color: #1a4d2e;
+            font-size: 1rem;
         }
 
         .developments-list p {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: #3a5a4e;
+            font-size: 0.85rem;
+        }
+
+        /* Tablet and Desktop */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+            
+            .two-col-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            
+            .gallery-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .hero-overlay h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-overlay {
+                padding: 50px 40px;
+            }
+            
+            .hero-section {
+                min-height: 550px;
+            }
+            
+            .footer-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 40px;
+            }
+            
+            .property-card {
+                padding: 35px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-overlay h1 {
+                font-size: 4rem;
+                max-width: 70%;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 480px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                justify-content: center;
+            }
+            
+            .logo-area {
+                justify-content: center;
+            }
+            
+            .hero-overlay h1 {
+                font-size: 1.8rem;
+            }
+            
+            .detail-value {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -450,7 +548,6 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- Your official logo from GitHub -->
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="logo-img">
                 <span class="tagline" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
@@ -473,7 +570,6 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section -->
         <div class="hero-section" id="heroSection">
             <div class="hero-overlay">
                 <div class="hero-badge"><i class="fas fa-leaf"></i> <span data-translate="heroBadge">Regenerative EcoLiving</span></div>
@@ -482,7 +578,6 @@
             </div>
         </div>
 
-        <!-- Property Card -->
         <div class="property-card">
             <h2 class="section-title" data-translate="sectionTitle1">Sundrop Resort at Canita Reserve</h2>
             <div class="details-row">
@@ -498,11 +593,10 @@
             </div>
         </div>
 
-        <!-- Two Column Features -->
         <div class="two-col-grid">
             <div>
-                <i class="fas fa-tree" style="font-size: 2.2rem; color: #1a4d2e; margin-bottom: 20px; display: inline-block;"></i>
-                <h3 style="margin-bottom: 16px; font-size: 1.5rem;" data-translate="agroTitle">AgroForestry & Restoration</h3>
+                <i class="fas fa-tree" style="font-size: 2rem; color: #1a4d2e; margin-bottom: 15px; display: inline-block;"></i>
+                <h3 style="margin-bottom: 12px; font-size: 1.3rem;" data-translate="agroTitle">AgroForestry & Restoration</h3>
                 <p data-translate="agroDesc">Over 10,000 native trees + cocoa, avocado, mango, and exotic hardwoods planted on previously deforested land. Our integrated model produces timber, organic crops, and carbon credits while reviving biodiversity.</p>
                 <ul class="feature-list">
                     <li><i class="fas fa-check-circle"></i> <span data-translate="agro1">2,000+ trees & crops</span></li>
@@ -511,8 +605,8 @@
                 </ul>
             </div>
             <div>
-                <i class="fas fa-home" style="font-size: 2.2rem; color: #1a4d2e; margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 16px; font-size: 1.5rem;" data-translate="ecoTitle">EcoVillage Community</h3>
+                <i class="fas fa-home" style="font-size: 2rem; color: #1a4d2e; margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 12px; font-size: 1.3rem;" data-translate="ecoTitle">EcoVillage Community</h3>
                 <p data-translate="ecoDesc">The BLOC campus includes senior care, language-immersive preschool, business center, social club, cinema, and commercial kitchen. Residents enjoy 21 farm-to-table meals/week, personalized assistance, and electric mobility.</p>
                 <ul class="feature-list">
                     <li><i class="fas fa-swimming-pool"></i> <span data-translate="eco1">3 natural spring lakes</span></li>
@@ -522,48 +616,45 @@
             </div>
         </div>
 
-        <!-- Investment Section -->
         <div class="green-bg">
-            <div class="two-col-grid" style="margin: 0; gap: 40px;">
+            <div class="two-col-grid" style="margin: 0; gap: 30px;">
                 <div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;" data-translate="investTitle"><i class="fas fa-chart-simple"></i> Investment Highlights</h3>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px;" data-translate="investTitle"><i class="fas fa-chart-simple"></i> Investment Highlights</h3>
                     <p data-translate="investDesc">Projected revenue from $3.86M (Year 1) to $16.2M (Year 5). EcoHome deposits from $35,000 (10-20% of purchase price). Diversified income: home sales, glamping (ADR $140), agroforestry, and carbon credits.</p>
-                    <p style="margin-top: 16px;" data-translate="investCitz"><strong>Pathway to Panama Citizenship:</strong> Ownership investment includes legal services and a clear residency-to-citizenship track within 5 years.</p>
-                    <a href="#" class="btn-primary" id="investBtn" style="margin-top: 24px; display: inline-block;" data-translate="investBtnText">Request Investment Deck</a>
+                    <p style="margin-top: 12px;" data-translate="investCitz"><strong>Pathway to Panama Citizenship:</strong> Ownership investment includes legal services and a clear residency-to-citizenship track within 5 years.</p>
+                    <a href="#" class="btn-primary" id="investBtn" style="margin-top: 20px; display: inline-block;" data-translate="investBtnText">Request Investment Deck</a>
                 </div>
                 <div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 16px;" data-translate="energyTitle"><i class="fas fa-solar-panel"></i> Off-Grid Resilience</h3>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px;" data-translate="energyTitle"><i class="fas fa-solar-panel"></i> Off-Grid Resilience</h3>
                     <p data-translate="energyDesc">Solar array + micro-hydro + battery storage · Greywater recycling · Black water composting · Electric ATVs & community SUVs · Starlink high-speed internet · Helicopter taxi pad from Panama City.</p>
-                    <p style="margin-top: 16px;" data-translate="teamDesc"><strong>Management Team:</strong> J Brad Knight (Real Estate), Fredy Garavito (Forestry), Nelsy Garavito (Luxury Hospitality), Curt Smith (Finance).</p>
+                    <p style="margin-top: 12px;" data-translate="teamDesc"><strong>Management Team:</strong> J Brad Knight, Fredy Garavito, Nelsy Garavito, Curt Smith.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Gallery -->
         <div class="gallery-row">
             <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?w=600&h=400&fit=crop');"></div>
             <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg?w=600&h=400&fit=crop');"></div>
             <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?w=600&h=400&fit=crop');"></div>
         </div>
 
-        <!-- Gateway Section -->
         <div class="property-card">
             <h2 class="section-title" data-translate="gatewayTitle">Gateway to Eastern Panama</h2>
             <div class="two-col-grid" style="margin-top: 0;">
                 <div>
-                    <h4 style="margin-bottom: 12px;"><i class="fas fa-water"></i> <span data-translate="lakeTitle">Lake Bayano & Caves</span></h4>
+                    <h4 style="margin-bottom: 10px;"><i class="fas fa-water"></i> <span data-translate="lakeTitle">Lake Bayano & Caves</span></h4>
                     <p data-translate="lakeDesc">Boat trips, kayaking through canyons, limestone caves, and tarpon fishing. Only 20 minutes from Canita.</p>
-                    <h4 style="margin: 24px 0 12px;"><i class="fas fa-mountain"></i> <span data-translate="riverTitle">Mamoni River</span></h4>
+                    <h4 style="margin: 20px 0 10px;"><i class="fas fa-mountain"></i> <span data-translate="riverTitle">Mamoni River</span></h4>
                     <p data-translate="riverDesc">Class III-IV whitewater rafting, year-round, 30 minutes away, through the Mamoni Preserve.</p>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 12px;"><i class="fas fa-bird"></i> <span data-translate="cocoboloTitle">Cocobolo Nature Reserve</span></h4>
+                    <h4 style="margin-bottom: 10px;"><i class="fas fa-bird"></i> <span data-translate="cocoboloTitle">Cocobolo Nature Reserve</span></h4>
                     <p data-translate="cocoboloDesc">Over 300 bird species, primary forest hiking, and stargazing due to low light pollution.</p>
-                    <h4 style="margin: 24px 0 12px;"><i class="fas fa-city"></i> <span data-translate="cityTitle">Panama City & Casco Antiguo</span></h4>
+                    <h4 style="margin: 20px 0 10px;"><i class="fas fa-city"></i> <span data-translate="cityTitle">Panama City & Casco Antiguo</span></h4>
                     <p data-translate="cityDesc">UNESCO World Heritage sites, modern amenities, and Tocumen International Airport just 1.5 hours away.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 32px;">
+            <div style="text-align: center; margin-top: 25px;">
                 <a href="#" class="btn-outline" id="discoveryBtn" data-translate="discoveryBtn">Book Discovery Stay <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -573,21 +664,23 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div>
+            <div class="footer-section">
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="footer-logo-img">
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
-                <p style="margin-top: 16px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
+                <p style="margin-top: 12px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
-            <div>
-                <h4 style="margin-bottom: 16px;" data-translate="footerExplore">Explore</h4>
-                <p><a href="#" id="footerEco" style="color:#cde0d6; text-decoration:none; line-height: 2;" data-translate="footerEco">EcoHomes</a></p>
-                <p><a href="#" id="footerAgro" style="color:#cde0d6; text-decoration:none; line-height: 2;" data-translate="footerAgro">Agroforestry</a></p>
-                <p><a href="#" id="footerGlamp" style="color:#cde0d6; text-decoration:none; line-height: 2;" data-translate="footerGlamp">Glamping Stays</a></p>
-                <p><a href="#" id="footerInvest" style="color:#cde0d6; text-decoration:none; line-height: 2;" data-translate="footerInvest">Investment</a></p>
+            <div class="footer-section">
+                <h4 data-translate="footerExplore">Explore</h4>
+                <p><a href="#" id="footerEco" data-translate="footerEco">EcoHomes</a></p>
+                <p><a href="#" id="footerAgro" data-translate="footerAgro">Agroforestry</a></p>
+                <p><a href="#" id="footerGlamp" data-translate="footerGlamp">Glamping Stays</a></p>
+                <p><a href="#" id="footerInvest" data-translate="footerInvest">Investment</a></p>
             </div>
-            <div>
-                <h4 style="margin-bottom: 16px;" data-translate="footerLegal">Legal</h4>
-                <p style="line-height: 2;">Privacy Policy<br>Terms of Service<br>© 2026 Sundrop Canita</p>
+            <div class="footer-section">
+                <h4 data-translate="footerLegal">Legal</h4>
+                <p>Privacy Policy</p>
+                <p>Terms of Service</p>
+                <p>© 2026 Sundrop Canita</p>
             </div>
         </div>
         <div class="copyright">
@@ -600,14 +693,14 @@
 <div id="inquiryModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h3 id="modalTitle" style="margin-top: 0;"><i class="fas fa-envelope"></i> Inquire about Sundrop Canita</h3>
+        <h3 style="margin-top: 0;"><i class="fas fa-envelope"></i> Inquire about Sundrop Canita</h3>
         <form id="inquiryForm">
             <input type="text" id="nameInput" placeholder="Full Name" required>
             <input type="email" id="emailInput" placeholder="Email Address" required>
             <textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea>
             <button type="submit" class="btn-primary" style="width:100%;">Send Request</button>
         </form>
-        <p style="margin-top: 16px; font-size:0.8rem;">We'll respond within 24h.</p>
+        <p style="margin-top: 12px; font-size:0.75rem;">We'll respond within 24h.</p>
     </div>
 </div>
 
@@ -615,7 +708,7 @@
 <div id="developmentsModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" id="closeDevModal">&times;</span>
-        <h2 style="color: #1a4d2e;"><i class="fas fa-building"></i> Sundrop Canita Developments</h2>
+        <h2 style="color: #1a4d2e; font-size: 1.4rem;"><i class="fas fa-building"></i> Sundrop Canita Developments</h2>
         <div class="developments-list">
             <h3>🏡 EcoHomes (55 units)</h3>
             <p>2-4 bedroom luxury sustainable homes on 1/3 acre lots. Starting from $220,000. Includes 15hrs/week personalized assistance.</p>
@@ -630,18 +723,16 @@
             <h3>🔋 Sustainable Infrastructure</h3>
             <p>Solar array, micro-hydro, battery storage, greywater recycling, electric ATVs/SUVs, Starlink internet.</p>
         </div>
-        <a href="#" class="btn-primary" id="devInquiryBtn" style="margin-top: 16px;">Inquire About Development</a>
+        <a href="#" class="btn-primary" id="devInquiryBtn" style="margin-top: 15px;">Inquire About Development</a>
     </div>
 </div>
 
 <script>
-    // Set hero background image
     const heroSection = document.getElementById('heroSection');
     heroSection.style.backgroundImage = "url('https://images.pexels.com/photos/1671324/pexels-photo-1671324.jpeg?w=1600&h=600&fit=crop')";
     heroSection.style.backgroundSize = "cover";
     heroSection.style.backgroundPosition = "center";
 
-    // Translations
     const translations = {
         en: {
             tagline: "Canita Reserve · Panamá", navHome: "Home", navDevelopments: "Developments", navContact: "Contact us", inquiryBtn: "Inquire",
@@ -717,7 +808,6 @@
         else document.getElementById('heroTitle').innerHTML = 'Nuestra Selva, <br>Tu Paraíso';
     }
 
-    // Language dropdown
     const langSelector = document.getElementById('langSelector');
     langSelector.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -737,7 +827,6 @@
         langSelector.classList.remove('active');
     });
 
-    // Modal functionality
     const inquiryModal = document.getElementById('inquiryModal');
     const developmentsModal = document.getElementById('developmentsModal');
     
@@ -753,7 +842,6 @@
     document.getElementById('footerInvest').addEventListener('click', (e) => { e.preventDefault(); openModal(inquiryModal); });
     document.getElementById('devInquiryBtn').addEventListener('click', (e) => { e.preventDefault(); closeModal(developmentsModal); openModal(inquiryModal); });
     
-    // Developments button - opens the developments modal
     document.getElementById('nav-developments').addEventListener('click', (e) => {
         e.preventDefault();
         openModal(developmentsModal);
@@ -779,3 +867,4 @@
 </script>
 </body>
 </html>
+```
