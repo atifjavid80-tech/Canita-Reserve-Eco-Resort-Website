@@ -540,12 +540,17 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- Logo as text-based design (reliable, always shows) -->
-                <div class="logo-text" style="display: flex; flex-direction: column; line-height: 1.2;">
-                    <span style="font-size: 0.65rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
-                    <span style="font-size: 1.1rem; font-weight: 800; color: #1a4d2e;">SUNDROP RESORT</span>
-                    <span style="font-size: 0.7rem; letter-spacing: 0.5px; color: #2d8c5a; font-weight: 500;">CANITA RESERVE</span>
-                    <span style="font-size: 0.6rem; color: #6b7a6e;">CHEPO, PANAMA</span>
+                <!-- Your official logo from GitHub - now with fallback text -->
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
+                     alt="Sundrop Canita Logo" 
+                     class="logo-img"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- Fallback text logo if image fails to load -->
+                <div style="display: none; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 0.6rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
+                    <span style="font-size: 1rem; font-weight: 800; color: #1a4d2e;">SUNDROP RESORT</span>
+                    <span style="font-size: 0.65rem; letter-spacing: 0.5px; color: #2d8c5a; font-weight: 500;">CANITA RESERVE</span>
+                    <span style="font-size: 0.55rem; color: #6b7a6e;">CHEPO, PANAMA</span>
                 </div>
                 <span class="tagline" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
@@ -663,8 +668,13 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <!-- Footer logo as text (reliable, always shows) -->
-                <div class="footer-logo-text" style="margin-bottom: 15px;">
+                <!-- Footer logo with fallback -->
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
+                     alt="Sundrop Canita Logo" 
+                     class="footer-logo-img"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <!-- Fallback text logo for footer -->
+                <div style="display: none; margin-bottom: 15px;">
                     <div style="font-size: 0.6rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
                     <div style="font-size: 1rem; font-weight: 700; color: white;">SUNDROP RESORT</div>
                     <div style="font-size: 0.65rem; letter-spacing: 0.5px; color: #8fbc9a;">CANITA RESERVE</div>
@@ -736,6 +746,26 @@
     heroSection.style.backgroundImage = "url('https://images.pexels.com/photos/1671324/pexels-photo-1671324.jpeg?w=1600&h=600&fit=crop')";
     heroSection.style.backgroundSize = "cover";
     heroSection.style.backgroundPosition = "center";
+
+    // Force reload logo images to ensure they show
+    const headerLogo = document.querySelector('.logo-img');
+    const footerLogo = document.querySelector('.footer-logo-img');
+    
+    if (headerLogo) {
+        headerLogo.onerror = function() {
+            this.style.display = 'none';
+            const fallback = this.nextElementSibling;
+            if (fallback) fallback.style.display = 'flex';
+        };
+    }
+    
+    if (footerLogo) {
+        footerLogo.onerror = function() {
+            this.style.display = 'none';
+            const fallback = this.nextElementSibling;
+            if (fallback) fallback.style.display = 'block';
+        };
+    }
 
     const translations = {
         en: {
