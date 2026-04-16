@@ -140,7 +140,7 @@
             background: #0f3820;
         }
 
-        /* Hero Section */
+        /* Hero Section with your new image */
         .hero-section {
             position: relative;
             margin: 32px 0 48px;
@@ -542,7 +542,7 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section with Tagline -->
+        <!-- Hero Section with your NEW image -->
         <div class="hero-section" id="heroSection">
             <div class="hero-overlay">
                 <div class="hero-badge"><i class="fas fa-leaf"></i> <span data-translate="heroBadge">Regenerative EcoLiving</span></div>
@@ -579,6 +579,7 @@
                 </div>
             </div>
 
+            <!-- Updated Price -->
             <div class="price" data-translate="price">From $160,000 USD</div>
             <div class="price-note" data-translate="priceNote">*Fractional ownership available from $35,000 deposit</div>
 
@@ -630,7 +631,7 @@
             </div>
         </div>
 
-        <!-- Gallery Section - You can replace these image URLs with your actual GitHub images -->
+        <!-- Gallery Section -->
         <div class="gallery-section">
             <h2 class="section-title" data-translate="galleryTitle">Photo Gallery</h2>
             <div class="gallery-grid" id="galleryGrid">
@@ -710,13 +711,13 @@
 </div>
 
 <script>
-    // Hero background image
+    // NEW HERO IMAGE - Your uploaded image from GitHub
     const heroSection = document.getElementById('heroSection');
-    heroSection.style.backgroundImage = "url('https://images.pexels.com/photos/1671324/pexels-photo-1671324.jpeg?w=1600&h=600&fit=crop')";
+    heroSection.style.backgroundImage = "url('https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%207.08.19%20PM.jpeg')";
     heroSection.style.backgroundSize = "cover";
     heroSection.style.backgroundPosition = "center";
 
-    // Gallery images - Add your GitHub image URLs here
+    // Gallery images - Add all your WhatsApp images here
     const galleryImages = [
         "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.36%20PM%20(1).jpeg",
         "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.36%20PM%20(2).jpeg",
@@ -725,7 +726,11 @@
         "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.36%20PM.jpeg",
         "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM%20(1).jpeg",
         "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM%20(2).jpeg",
-        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM%20(3).jpeg"
+        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM%20(3).jpeg",
+        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM%20(4).jpeg",
+        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.37%20PM.jpeg",
+        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.38%20PM.jpeg?raw=true",
+        "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/WhatsApp%20Image%202026-04-16%20at%205.47.39%20PM.jpeg"
     ];
 
     // Populate gallery
@@ -752,23 +757,23 @@
             area: "AREA", areaVal: "20 acres residential + 17 ha reforestation",
             year: "YEAR", yearVal: "Pre-launch 2026",
             price: "From $160,000 USD", priceNote: "*Fractional ownership available from $35,000 deposit",
-            desc1: "<strong>Regenerative by design</strong> — Sundrop Canita merges luxury eco-tourism with active rainforest restoration.",
-            desc2: "🌱 <strong>Our Rainforest, Your Paradise:</strong> 55 EcoHomes, 25 glamping sites, community gardens, natural spring lakes, holistic spa.",
-            landTitle: "The Land", landDesc: "Easily accessible from the Pan-American Highway via Chepo, the 20-acre residential property offers stunning views.",
+            desc1: "<strong>Regenerative by design</strong> — Sundrop Canita merges luxury eco-tourism with active rainforest restoration. Located near Lake Bayano in the Chepo district, our project offers middle-income expats and eco-conscious travelers a rare synergy of high-end infrastructure, organic farm-to-table living, and direct environmental impact.",
+            desc2: "🌱 <strong>Our Rainforest, Your Paradise:</strong> 55 EcoHomes, 25 indigenous-inspired glamping sites, community gardens, natural spring lakes, holistic spa, and cooperative livestock production.",
+            landTitle: "The Land", landDesc: "Easily accessible from the Pan-American Highway via Chepo, the 20-acre residential property offers stunning views of the surrounding rainforest and Lake Bayano.",
             feature1: "20 acres master-planned EcoVillage", feature2: "17 hectares active reforestation",
             feature3: "3 natural spring-fed lakes", feature4: "100% off-grid solar + micro-hydro",
-            villageTitle: "The EcoVillage & Resort", villageDesc: "The BLOC campus includes senior care, preschool, business center, social club, theater, and market.",
+            villageTitle: "The EcoVillage & Resort", villageDesc: "The BLOC campus includes senior care facility, language-immersive preschool, business center, social club, theater, commercial kitchen, restaurant, and market.",
             village1: "55 EcoHomes + 60 rental apartments", village2: "25 luxury glamping sites",
             village3: "Agroforestry: cocoa, avocado, mango", village4: "Co-op livestock & trout farming",
-            investTitle: "Investment Highlights", investDesc: "Projected revenue from $3.86M (Year 1) to $16.2M (Year 5). EcoHome starting at $160,000.",
-            investCitz: "<strong>Pathway to Panama Citizenship:</strong> Ownership includes legal services and residency-to-citizenship track within 5 years.",
-            energyTitle: "Off-Grid Resilience", energyDesc: "Solar array + micro-hydro + battery storage · Greywater recycling · Electric ATVs & community SUVs.",
+            investTitle: "Investment Highlights", investDesc: "Projected revenue from $3.86M (Year 1) to $16.2M (Year 5). EcoHome starting at $160,000 with deposits from $35,000.",
+            investCitz: "<strong>Pathway to Panama Citizenship:</strong> Ownership investment includes legal services and a clear residency-to-citizenship track within 5 years.",
+            energyTitle: "Off-Grid Resilience", energyDesc: "Solar array + micro-hydro + battery storage · Greywater recycling · Black water composting · Electric ATVs & community SUVs.",
             teamDesc: "<strong>Management Team:</strong> J Brad Knight, Fredy Garavito, Nelsy Garavito, Curt Smith.",
             galleryTitle: "Photo Gallery", attractionsTitle: "Gateway to Eastern Panama",
-            lakeTitle: "Lake Bayano & Caves", lakeDesc: "Boat trips, kayaking, limestone caves, tarpon fishing.",
-            riverTitle: "Mamoni River", riverDesc: "Class III-IV whitewater rafting, 30 minutes away.",
-            cocoboloTitle: "Cocobolo Nature Reserve", cocoboloDesc: "Over 300 bird species, primary forest hiking, stargazing.",
-            cityTitle: "Panama City & Casco Antiguo", cityDesc: "UNESCO sites, modern amenities, airport 1.5 hours away.",
+            lakeTitle: "Lake Bayano & Caves", lakeDesc: "Boat trips, kayaking through canyons, limestone caves, and tarpon fishing.",
+            riverTitle: "Mamoni River", riverDesc: "Class III-IV whitewater rafting, year-round, 30 minutes away.",
+            cocoboloTitle: "Cocobolo Nature Reserve", cocoboloDesc: "Over 300 bird species, primary forest hiking, and stargazing.",
+            cityTitle: "Panama City & Casco Antiguo", cityDesc: "UNESCO World Heritage sites, modern amenities, and Tocumen International Airport just 1.5 hours away.",
             discoveryBtn: "Book Discovery Stay", investBtnText: "Request Investment Deck",
             footerAddress: "Canita Reserve, Chepo District<br>Panamá, Republic of Panamá",
             footerExplore: "Explore", footerLegal: "Legal", footerEco: "EcoHomes", footerGlamp: "Glamping Stays",
@@ -785,27 +790,27 @@
             area: "ÁREA", areaVal: "20 acres residenciales + 17 ha reforestación",
             year: "AÑO", yearVal: "Pre-lanzamiento 2026",
             price: "Desde $160,000 USD", priceNote: "*Propiedad fraccional disponible desde $35,000 depósito",
-            desc1: "<strong>Regenerativo por diseño</strong> — Sundrop Canita combina ecoturismo de lujo con restauración activa de la selva.",
-            desc2: "🌱 <strong>Nuestra Selva, Tu Paraíso:</strong> 55 EcoHomes, 25 sitios glamping, jardines comunitarios, lagunas, spa holístico.",
-            landTitle: "El Terreno", landDesc: "Fácil acceso desde la Carretera Panamericana vía Chepo, vista espectacular de la selva.",
+            desc1: "<strong>Regenerativo por diseño</strong> — Sundrop Canita combina el ecoturismo de lujo con la restauración activa de la selva tropical. Ubicado cerca del Lago Bayano en el distrito de Chepo, nuestro proyecto ofrece una rara sinergia de infraestructura de alta gama, vida orgánica de la granja a la mesa y impacto ambiental directo.",
+            desc2: "🌱 <strong>Nuestra Selva, Tu Paraíso:</strong> 55 EcoHomes, 25 sitios de glamping inspirados en lo indígena, jardines comunitarios, lagunas naturales, spa holístico y producción cooperativa.",
+            landTitle: "El Terreno", landDesc: "Fácil acceso desde la Carretera Panamericana vía Chepo, la propiedad residencial de 20 acres ofrece vistas impresionantes de la selva tropical y el Lago Bayano.",
             feature1: "20 acres EcoVillage planificado", feature2: "17 hectáreas reforestación activa",
             feature3: "3 lagunas de manantial", feature4: "100% fuera de red solar + microhidro",
-            villageTitle: "El EcoVillage & Resort", villageDesc: "El campus BLOC incluye cuidado de ancianos, preescolar, centro de negocios, club social, cine y mercado.",
-            village1: "55 EcoHomes + 60 apartamentos", village2: "25 sitios glamping de lujo",
+            villageTitle: "El EcoVillage & Resort", villageDesc: "El campus BLOC incluye cuidado de ancianos, preescolar inmersivo, centro de negocios, club social, cine, cocina comercial, restaurante y mercado.",
+            village1: "55 EcoHomes + 60 apartamentos", village2: "25 sitios de glamping de lujo",
             village3: "Agroforestería: cacao, aguacate, mango", village4: "Producción cooperativa y truchas",
-            investTitle: "Aspectos de Inversión", investDesc: "Ingresos proyectados de $3.86M (Año 1) a $16.2M (Año 5). EcoHome desde $160,000.",
-            investCitz: "<strong>Camino a la Ciudadanía de Panamá:</strong> Inversión incluye servicios legales.",
-            energyTitle: "Resiliencia Fuera de la Red", energyDesc: "Matriz solar + microhidro + baterías · Reciclaje de aguas grises · ATV eléctricos.",
+            investTitle: "Aspectos de Inversión", investDesc: "Ingresos proyectados de $3.86M (Año 1) a $16.2M (Año 5). EcoHome desde $160,000 con depósitos desde $35,000.",
+            investCitz: "<strong>Camino a la Ciudadanía de Panamá:</strong> La inversión incluye servicios legales y un camino claro hacia la residencia y ciudadanía en 5 años.",
+            energyTitle: "Resiliencia Fuera de la Red", energyDesc: "Matriz solar + microhidro + baterías · Reciclaje de aguas grises · Compostaje de aguas negras · ATV eléctricos y SUVs comunitarios.",
             teamDesc: "<strong>Equipo de Gestión:</strong> J Brad Knight, Fredy Garavito, Nelsy Garavito, Curt Smith.",
-            galleryTitle: "Galería de Fotos", attractionsTitle: "Puerta al Este de Panamá",
-            lakeTitle: "Lago Bayano y Cuevas", lakeDesc: "Paseos en bote, kayak, cuevas, pesca de sábalo.",
-            riverTitle: "Río Mamoni", riverDesc: "Rafting Clase III-IV, a 30 minutos.",
-            cocoboloTitle: "Reserva Natural Cocobolo", cocoboloDesc: "Más de 300 especies de aves, senderismo, observación de estrellas.",
-            cityTitle: "Ciudad de Panamá y Casco Antiguo", cityDesc: "Sitios UNESCO, aeropuerto a 1.5 horas.",
-            discoveryBtn: "Reservar Estancia", investBtnText: "Solicitar Información",
+            galleryTitle: "Galería de Fotos", attractionsTitle: "Puerta de entrada al este de Panamá",
+            lakeTitle: "Lago Bayano y Cuevas", lakeDesc: "Paseos en bote, kayak por cañones, cuevas de piedra caliza y pesca de sábalo.",
+            riverTitle: "Río Mamoni", riverDesc: "Rafting de Clase III-IV todo el año, a 30 minutos.",
+            cocoboloTitle: "Reserva Natural Cocobolo", cocoboloDesc: "Más de 300 especies de aves, senderismo en bosque primario y observación de estrellas.",
+            cityTitle: "Ciudad de Panamá y Casco Antiguo", cityDesc: "Sitios Patrimonio de la UNESCO, modernidades y aeropuerto internacional a 1.5 horas.",
+            discoveryBtn: "Reservar Estancia de Descubrimiento", investBtnText: "Solicitar Presentación de Inversión",
             footerAddress: "Reserva Canita, Distrito Chepo<br>Panamá, República de Panamá",
             footerExplore: "Explorar", footerLegal: "Legal", footerEco: "EcoHomes", footerGlamp: "Glamping",
-            footerInvest: "Inversión", footerAgro: "Agroforestería", footerTagline: '"Nuestra Selva, Tu Paraíso" — Lujo regenerativo',
+            footerInvest: "Inversión", footerAgro: "Agroforestería", footerTagline: '"Nuestra Selva, Tu Paraíso" — Lujo regenerativo y restauración del bosque',
             modalTitle: "Consultar sobre Sundrop Canita", sendBtn: "Enviar Solicitud", responseText: "Responderemos en 24h."
         }
     };
