@@ -28,7 +28,7 @@
 
         /* Header */
         .site-header {
-            padding: 24px 0;
+            padding: 20px 0;
             border-bottom: 1px solid #e8ece4;
             background: white;
             position: sticky;
@@ -46,23 +46,14 @@
 
         .logo-area {
             display: flex;
-            align-items: baseline;
-            gap: 12px;
+            align-items: center;
+            gap: 16px;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #1a4d2e;
-            text-decoration: none;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, #1a4d2e, #2d8c5a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .logo-img {
+            height: 65px;
+            width: auto;
+            display: block;
         }
 
         .tagline {
@@ -147,7 +138,7 @@
             background: #0f3820;
         }
 
-        /* Hero Section - HIGH QUALITY IMAGE */
+        /* Hero Section */
         .hero-section {
             position: relative;
             margin: 32px 0 48px;
@@ -211,9 +202,12 @@
             .two-col-grid {
                 grid-template-columns: 1fr;
             }
+            .logo-img {
+                height: 50px;
+            }
         }
 
-        /* Property Card - EXACT RootsPanama style */
+        /* Property Card */
         .property-card {
             background: white;
             border-radius: 24px;
@@ -373,10 +367,10 @@
             gap: 50px;
         }
 
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #e2f0e6;
+        .footer-logo-img {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
             margin-bottom: 16px;
         }
 
@@ -439,14 +433,14 @@
             margin: 20px 0;
         }
 
-        .developments-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+        .developments-list h3 {
+            margin: 20px 0 8px 0;
+            color: #1a4d2e;
         }
 
-        h3 {
-            margin: 20px 0 12px 0;
-            color: #1a4d2e;
+        .developments-list p {
+            margin-bottom: 12px;
+            color: #3a5a4e;
         }
     </style>
 </head>
@@ -456,7 +450,8 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <a href="#" class="logo"><span>Sundrop</span> Canita</a>
+                <!-- Your official logo from GitHub -->
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="logo-img">
                 <span class="tagline" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
             <div class="nav-menu">
@@ -478,7 +473,7 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section with WORKING high-quality image -->
+        <!-- Hero Section -->
         <div class="hero-section" id="heroSection">
             <div class="hero-overlay">
                 <div class="hero-badge"><i class="fas fa-leaf"></i> <span data-translate="heroBadge">Regenerative EcoLiving</span></div>
@@ -544,7 +539,7 @@
             </div>
         </div>
 
-        <!-- Gallery with REAL images -->
+        <!-- Gallery -->
         <div class="gallery-row">
             <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?w=600&h=400&fit=crop');"></div>
             <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg?w=600&h=400&fit=crop');"></div>
@@ -579,7 +574,7 @@
     <div class="container">
         <div class="footer-grid">
             <div>
-                <div class="footer-logo">Sundrop Canita</div>
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" alt="Sundrop Canita Logo" class="footer-logo-img">
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
                 <p style="margin-top: 16px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
@@ -640,7 +635,7 @@
 </div>
 
 <script>
-    // Set hero background with HIGH QUALITY image
+    // Set hero background image
     const heroSection = document.getElementById('heroSection');
     heroSection.style.backgroundImage = "url('https://images.pexels.com/photos/1671324/pexels-photo-1671324.jpeg?w=1600&h=600&fit=crop')";
     heroSection.style.backgroundSize = "cover";
@@ -758,7 +753,7 @@
     document.getElementById('footerInvest').addEventListener('click', (e) => { e.preventDefault(); openModal(inquiryModal); });
     document.getElementById('devInquiryBtn').addEventListener('click', (e) => { e.preventDefault(); closeModal(developmentsModal); openModal(inquiryModal); });
     
-    // Developments button - NOW OPENS THE DEVELOPMENTS MODAL
+    // Developments button - opens the developments modal
     document.getElementById('nav-developments').addEventListener('click', (e) => {
         e.preventDefault();
         openModal(developmentsModal);
