@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Sundrop Resort | Canita Reserve, Panama</title>
-    <!-- Google Fonts & simple reset -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sundrop Canita | Eco Resort at Canita Reserve, Panama</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,531 +17,620 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fefcf7;
-            color: #1e2a2e;
+            background-color: #ffffff;
+            color: #1a2a22;
             line-height: 1.5;
-            scroll-behavior: smooth;
         }
 
+        /* Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
-        /* header / navigation - no Properties/MLS links */
-        .navbar {
+        /* Header / Navigation - EXACT match to RootsPanama style */
+        .site-header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e8ece4;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0;
             flex-wrap: wrap;
             gap: 20px;
-            border-bottom: 1px solid #e2e8e0;
         }
 
         .logo-area {
             display: flex;
             align-items: baseline;
-            gap: 8px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1f5e3a, #2b7a4b);
+            color: #1a4d2e;
+            text-decoration: none;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #1a4d2e, #2d8c5a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .tagline-header {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: #4a6a5e;
-            border-left: 1px solid #cbd5c1;
+        .tagline {
+            font-size: 0.75rem;
+            color: #6b7a6e;
+            border-left: 1px solid #d4dcd0;
             padding-left: 12px;
-            margin-left: 4px;
+            font-weight: 500;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
             gap: 32px;
             align-items: center;
         }
 
-        .nav-links a {
+        .nav-menu a {
             text-decoration: none;
             font-weight: 500;
-            color: #2c4b3e;
-            transition: 0.2s;
-            font-size: 0.95rem;
+            color: #2a4236;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: #1a7f4a;
+        .nav-menu a:hover {
+            color: #1a4d2e;
         }
 
-        .contact-btn {
-            background: #1f5e3a;
-            color: white !important;
-            padding: 8px 20px;
-            border-radius: 40px;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            background: #0f442c;
-        }
-
-        /* language selector mock */
-        .lang {
-            font-size: 0.85rem;
-            font-weight: 500;
-            background: #f0f2ee;
-            padding: 6px 12px;
-            border-radius: 30px;
-            cursor: default;
-        }
-
-        /* hero section */
-        .hero {
+        .lang-selector {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 48px 0 64px 0;
             align-items: center;
-        }
-
-        .hero-content {
-            flex: 1.2;
-        }
-
-        .hero-badge {
-            background: #eaf6ef;
-            display: inline-block;
+            gap: 6px;
+            background: #f2f5ef;
             padding: 6px 14px;
             border-radius: 40px;
             font-size: 0.8rem;
-            font-weight: 600;
-            color: #1f5e3a;
-            margin-bottom: 20px;
+            font-weight: 500;
+            cursor: pointer;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a3a2e;
+        .inquiry-btn {
+            background: #1a4d2e;
+            color: white !important;
+            padding: 8px 24px;
+            border-radius: 40px;
+            transition: background 0.2s;
         }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #2d4a3e;
-            margin-bottom: 28px;
-            max-width: 90%;
+        .inquiry-btn:hover {
+            background: #0f3820;
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 20px;
-        }
-
-        .stat {
-            font-weight: 600;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #1f5e3a;
-        }
-
-        .hero-media {
-            flex: 1;
-            border-radius: 28px;
+        /* Hero Banner - like RootsPanama property hero */
+        .hero-section {
+            position: relative;
+            margin: 32px 0 48px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1542274402-6f13c3b6f9b7?w=1600&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
         }
 
-        .hero-media img {
+        .hero-overlay {
+            padding: 48px 48px;
             width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
         }
 
-        /* property detail style (like the oceanfront estate layout) */
-        .property-overview {
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-overlay h1 {
+            color: white;
+            font-size: 3.2rem;
+            font-weight: 700;
+            max-width: 70%;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Property Details Grid - exact style from reference */
+        .property-card {
             background: white;
-            border-radius: 28px;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eef2e8;
             padding: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            border: 1px solid #e9ede5;
             margin: 40px 0;
         }
 
         .section-title {
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 24px;
+            color: #1a3a2a;
             letter-spacing: -0.01em;
-            color: #1f3d31;
         }
 
-        .details-grid {
+        .details-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 24px;
-            background: #fafbf8;
-            padding: 24px;
-            border-radius: 24px;
-            margin: 20px 0;
+            background: #fafdf8;
+            padding: 28px;
+            border-radius: 20px;
+            margin: 24px 0;
         }
 
-        .detail-item {
+        .detail-block {
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
 
         .detail-label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #6b7b6e;
+            letter-spacing: 1.5px;
+            color: #7e8d82;
             font-weight: 600;
         }
 
         .detail-value {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #1e3a2f;
+            color: #1e4a32;
         }
 
         .description-text {
             font-size: 1rem;
-            line-height: 1.6;
-            color: #2c4238;
-            margin: 28px 0;
+            line-height: 1.65;
+            color: #2a3e34;
+            margin: 24px 0;
         }
 
-        .highlight-list {
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-col-grid, .header-inner {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .hero-overlay h1 {
+                font-size: 2rem;
+                max-width: 100%;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        .feature-list {
             list-style: none;
             margin: 20px 0;
         }
 
-        .highlight-list li {
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
+        .feature-list li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .highlight-list li i {
-            position: absolute;
-            left: 0;
-            top: 3px;
-            color: #2b8c5e;
+        .feature-list li i {
+            width: 24px;
+            color: #2d8c5a;
+            font-size: 1.1rem;
         }
 
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin: 40px 0;
-        }
-
-        @media (max-width: 780px) {
-            .two-columns, .hero {
-                grid-template-columns: 1fr;
-                flex-direction: column;
-            }
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .hero-content p {
-                max-width: 100%;
-            }
-        }
-
-        .amenities {
-            background: #f4f7f2;
-            border-radius: 28px;
+        .green-bg {
+            background: #f2f8f0;
+            border-radius: 24px;
             padding: 32px;
-        }
-
-        .btn-outline {
-            border: 1px solid #1f5e3a;
-            background: transparent;
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #1f5e3a;
-            display: inline-block;
-            transition: 0.2s;
-            text-decoration: none;
-        }
-
-        .btn-outline:hover {
-            background: #1f5e3a;
-            color: white;
+            margin: 32px 0;
         }
 
         .btn-primary {
-            background: #1f5e3a;
+            background: #1a4d2e;
             color: white;
-            padding: 12px 28px;
+            padding: 12px 32px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            transition: 0.2s;
+            transition: all 0.2s;
             border: none;
             cursor: pointer;
+            font-size: 0.9rem;
         }
 
         .btn-primary:hover {
-            background: #0f4f31;
+            background: #0e3a22;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #1a4d2e;
+            background: transparent;
+            padding: 11px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1a4d2e;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: #1a4d2e;
+            color: white;
+        }
+
+        /* Gallery / Image row */
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .gallery-img {
+            background: #eef0ea;
+            border-radius: 20px;
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.2s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
         }
 
         footer {
-            background: #1e2e26;
-            color: #d4e2da;
-            padding: 48px 0 32px;
-            margin-top: 70px;
+            background: #121f18;
+            color: #cbdcd2;
+            padding: 56px 0 32px;
+            margin-top: 64px;
         }
 
-        .footer-inner {
+        .footer-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 32px;
+            gap: 40px;
         }
 
         .footer-logo {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #eaf6ef;
+            color: #e2f0e6;
+            margin-bottom: 16px;
         }
 
-        .small-print {
-            font-size: 0.8rem;
-            margin-top: 32px;
+        .copyright {
             text-align: center;
-            border-top: 1px solid #3a5548;
+            margin-top: 48px;
             padding-top: 24px;
+            border-top: 1px solid #2a4034;
+            font-size: 0.8rem;
         }
 
-        /* image placeholder simulation */
-        .img-placeholder {
-            background: #dde5dd;
-            display: flex;
-            align-items: center;
+        /* Interactive modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
             justify-content: center;
-            min-height: 280px;
-            border-radius: 24px;
-            background-size: cover;
-            background-position: center;
-            color: #2c5a44;
-            font-weight: 500;
+            align-items: center;
         }
 
-        .forest-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/800x600/ced9ce/2a5a44?text=Canita+Rainforest');
-            background-size: cover;
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 28px;
+            padding: 32px;
+            text-align: center;
         }
 
-        .inline-icon {
-            margin-right: 8px;
-            color: #2b8c5e;
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- navigation: NO Properties or MLS links as requested -->
-    <div class="navbar">
-        <div class="logo-area">
-            <span class="logo">Sundrop Resort</span>
-            <span class="tagline-header">Canita Reserve · Panamá</span>
-        </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Developments</a>
-            <a href="#">Contact us</a>
-            <span class="lang">EN <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
-            <a href="#" class="contact-btn">Inquire</a>
-        </div>
-    </div>
-
-    <!-- Hero section with main tagline -->
-    <div class="hero">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-leaf"></i> Regenerative EcoLiving</div>
-            <h1>Our Rainforest,<br>Your Paradise</h1>
-            <p>Discover Sundrop Resort at Canita Reserve — where luxury eco-tourism meets active rainforest restoration. EcoHomes, glamping, agroforestry & a holistic lifestyle in Eastern Panama.</p>
-            <div class="hero-stats">
-                <div class="stat"><span class="stat-number">55</span> <br>EcoHomes</div>
-                <div class="stat"><span class="stat-number">25</span> <br>Glamping Sites</div>
-                <div class="stat"><span class="stat-number">300+</span> <br>Bird Species</div>
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo-area">
+                <a href="#" class="logo"><span>Sundrop</span> Canita</a>
+                <span class="tagline">Canita Reserve · Panamá</span>
             </div>
-            <div style="margin-top: 28px;">
-                <a href="#" class="btn-primary">Own a piece of paradise <i class="fas fa-arrow-right"></i></a>
-                <a href="#" class="btn-outline" style="margin-left: 12px;">Discovery Stay</a>
+            <div class="nav-menu">
+                <a href="#" id="nav-home">Home</a>
+                <a href="#" id="nav-developments">Developments</a>
+                <a href="#" id="nav-contact">Contact us</a>
+                <div class="lang-selector" id="langBtn">
+                    <i class="fas fa-globe"></i> EN <i class="fas fa-chevron-down"></i>
+                </div>
+                <a href="#" class="inquiry-btn" id="inquiryBtnHeader">Inquire</a>
             </div>
         </div>
-        <div class="hero-media">
-            <!-- immersive rainforest visual -->
-            <img src="https://placehold.co/700x500/d9e2d4/2c5a44?text=Canita+Reserve+EcoLuxury" alt="Sundrop Resort Canita rainforest">
-        </div>
     </div>
+</header>
 
-    <!-- property style overview: inspired by oceanfront estate layout from rootspanama -->
-    <div class="property-overview">
-        <h2 class="section-title">Sundrop at Canita Reserve <span style="font-size: 1rem; font-weight: 400;"> • EcoVillage & Resort</span></h2>
-        <div class="details-grid">
-            <div class="detail-item"><span class="detail-label">Property Type</span><span class="detail-value">Fractional EcoHomes / Glamping</span></div>
-            <div class="detail-item"><span class="detail-label">Total Area</span><span class="detail-value">20+ acres residential / 17 ha reforestation</span></div>
-            <div class="detail-item"><span class="detail-label">Bedrooms (EcoHomes)</span><span class="detail-value">2-4 BR designs</span></div>
-            <div class="detail-item"><span class="detail-label">Year Est.</span><span class="detail-value">Pre-launch 2026</span></div>
-            <div class="detail-item"><span class="detail-label">Sustainability</span><span class="detail-value">100% Solar + Microhydro</span></div>
+<main>
+    <div class="container">
+        <!-- Hero Section with tagline "Our Rainforest, Your Paradise" -->
+        <div class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1542274402-6f13c3b6f9b7?w=1600&h=600&fit=crop');">
+            <div class="hero-overlay">
+                <div class="hero-badge"><i class="fas fa-leaf"></i> Regenerative EcoLiving</div>
+                <h1>Our Rainforest, <br>Your Paradise</h1>
+                <div class="hero-tagline">Luxury EcoHomes · Glamping · Agroforestry</div>
+            </div>
         </div>
-        <div class="description-text">
-            <p><strong>Regenerative by design</strong> — Sundrop Resort at Canita Reserve merges agroforestry, luxury hospitality and active forest restoration. Located in the Chepo district near Lake Bayano, our project offers a unique value: middle-income expats and eco-conscious travelers can own a piece of the rainforest while directly contributing to carbon capture and biodiversity revival. Unlike rustic off-grid communities or overpriced private islands, we provide high-quality infrastructure, organic farm-to-table living, and a clear environmental impact.</p>
+
+        <!-- Property Detail Card (exactly matching the reference style) -->
+        <div class="property-card">
+            <h2 class="section-title">Sundrop Resort at Canita Reserve</h2>
+            <div class="details-row">
+                <div class="detail-block"><span class="detail-label">PROPERTY TYPE</span><span class="detail-value">Fractional EcoHomes / Glamping</span></div>
+                <div class="detail-block"><span class="detail-label">TOTAL AREA</span><span class="detail-value">20 acres residential + 17 ha reforestation</span></div>
+                <div class="detail-block"><span class="detail-label">BEDROOMS</span><span class="detail-value">2–4 BR EcoHomes</span></div>
+                <div class="detail-block"><span class="detail-label">YEAR</span><span class="detail-value">Pre-launch 2026</span></div>
+                <div class="detail-block"><span class="detail-label">SUSTAINABILITY</span><span class="detail-value">100% Solar + Microhydro</span></div>
+            </div>
+            <div class="description-text">
+                <p><strong>Regenerative by design</strong> — Sundrop Canita merges luxury eco-tourism with active rainforest restoration. Located near Lake Bayano in the Chepo district, our project offers middle-income expats and eco-conscious travelers a rare synergy of high-end infrastructure, organic farm-to-table living, and direct environmental impact. Unlike rustic off-grid communities or overpriced private islands, we deliver tangible restoration.</p>
+                <p>🌱 <strong>Our Rainforest, Your Paradise:</strong> 55 EcoHomes, 25 indigenous-inspired glamping sites, community gardens, natural spring lakes, holistic spa, and cooperative livestock production. Every stay or home ownership directly funds our 15-year reforestation program.</p>
+            </div>
         </div>
-        <div class="two-columns">
+
+        <!-- Two column: Agroforestry + EcoVillage -->
+        <div class="two-col-grid">
             <div>
-                <h3><i class="fas fa-tree inline-icon"></i> AgroForestry & Restoration</h3>
-                <p>Over 10,000 native trees and commercial crops (cacao, lime, avocado, tropical hardwoods) planted on 17 hectares of previously deforested land. Our 15-year reforestation program guarantees real impact — guests and residents participate in the revival of the Panamanian jungle.</p>
-                <ul class="highlight-list">
-                    <li><i class="fas fa-seedling"></i> 2,000+ trees & plants integrated</li>
-                    <li><i class="fas fa-chart-line"></i> Carbon sequestration & biodiversity monitoring</li>
-                    <li><i class="fas fa-hand-sparkles"></i> Cooperative livestock & farm-to-fork</li>
+                <i class="fas fa-tree" style="font-size: 2rem; color: #1a4d2e; margin-bottom: 16px; display: inline-block;"></i>
+                <h3 style="margin-bottom: 12px;">AgroForestry & Restoration</h3>
+                <p>Over 10,000 native trees + cocoa, avocado, mango, and exotic hardwoods planted on previously deforested land. Our integrated model produces timber, organic crops, and carbon credits while reviving biodiversity.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> 2,000+ trees & crops</li>
+                    <li><i class="fas fa-chart-line"></i> Carbon sequestration tracking</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> Co-op farming & trout production</li>
                 </ul>
             </div>
             <div>
-                <h3><i class="fas fa-home inline-icon"></i> EcoHomes & Glamping Experience</h3>
-                <p>55 EcoHomes spread across 20 acres (1/3 acre per dwelling) + 25 indigenous-inspired glamping sites. Enjoy private terraces, smart solar systems, and community amenities including natural spring lakes, holistic spa, fitness center, and farm cooperative. Each home includes 15 hours/week personalized assistance (childcare, executive assistant, forest guiding).</p>
-                <a href="#" class="btn-outline" style="margin-top: 8px;">Explore ownership models <i class="fas fa-chevron-right"></i></a>
+                <i class="fas fa-home" style="font-size: 2rem; color: #1a4d2e; margin-bottom: 16px;"></i>
+                <h3 style="margin-bottom: 12px;">EcoVillage Community</h3>
+                <p>The BLOC campus includes senior care, language-immersive preschool, business center, social club, cinema, and commercial kitchen. Residents enjoy 21 farm-to-table meals/week, personalized assistance, and electric mobility.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-swimming-pool"></i> 3 natural spring lakes</li>
+                    <li><i class="fas fa-dumbbell"></i> Fitness & yoga center</li>
+                    <li><i class="fas fa-shield-alt"></i> 24/7 private security</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investment + pathway to citizenship (from business plan) -->
+        <div class="green-bg">
+            <div class="two-col-grid" style="margin: 0; gap: 32px;">
+                <div>
+                    <h3><i class="fas fa-chart-simple"></i> Investment Highlights</h3>
+                    <p>Projected revenue from $3.86M (Year 1) to $16.2M (Year 5). EcoHome deposits from $35,000 (10-20% of purchase price). Diversified income: home sales, glamping (ADR $140), agroforestry, and carbon credits. Fractional ownership model lowers entry barrier.</p>
+                    <p><strong>Pathway to Panama Citizenship:</strong> Ownership investment includes legal services and a clear residency-to-citizenship track within 5 years.</p>
+                    <a href="#" class="btn-primary" id="investBtn" style="margin-top: 16px;">Request Investment Deck</a>
+                </div>
+                <div>
+                    <h3><i class="fas fa-solar-panel"></i> Off-Grid Resilience</h3>
+                    <p>Solar array + micro-hydro + battery storage · Greywater recycling · Black water composting · Electric ATVs & community SUVs · Starlink high-speed internet · Helicopter taxi pad from Panama City.</p>
+                    <p><strong>Management Team:</strong> J Brad Knight (Real Estate), Fredy Garavito (Forestry), Nelsy Garavito (Luxury Hospitality), Curt Smith (Finance).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image gallery row inspired by RootsPanama property media -->
+        <div class="gallery-row">
+            <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1602002418082-dd6aa5d6c06b?w=600&h=400&fit=crop');"></div>
+            <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=600&h=400&fit=crop');"></div>
+            <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&h=400&fit=crop');"></div>
+        </div>
+
+        <!-- Nearby attractions / similar to "The Land / The Dream" -->
+        <div class="property-card">
+            <h2 class="section-title">Gateway to Eastern Panama</h2>
+            <div class="two-col-grid" style="margin-top: 0;">
+                <div>
+                    <h4><i class="fas fa-water"></i> Lake Bayano & Caves</h4>
+                    <p>Boat trips, kayaking through canyons, limestone caves, and tarpon fishing. Only 20 minutes from Canita.</p>
+                    <h4 style="margin-top: 20px;"><i class="fas fa-mountain"></i> Mamoni River</h4>
+                    <p>Class III-IV whitewater rafting, year-round, 30 minutes away, through the Mamoni Preserve.</p>
+                </div>
+                <div>
+                    <h4><i class="fas fa-bird"></i> Cocobolo Nature Reserve</h4>
+                    <p>Over 300 bird species, primary forest hiking, and stargazing due to low light pollution.</p>
+                    <h4 style="margin-top: 20px;"><i class="fas fa-city"></i> Panama City & Casco Antiguo</h4>
+                    <p>UNESCO World Heritage sites, modern amenities, and Tocumen International Airport just 1.5 hours away.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="#" class="btn-outline" id="discoveryBtn">Book Discovery Stay <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
-
-    <!-- additional content: investment + eco-lifestyle (as per business plan) -->
-    <div class="amenities">
-        <h2 class="section-title">A new standard for regenerative travel</h2>
-        <div class="two-columns" style="margin-top: 0;">
-            <div>
-                <i class="fas fa-solar-panel" style="font-size: 2rem; color: #2b8c5e; margin-bottom: 16px; display: inline-block;"></i>
-                <h3>Off-grid resilience</h3>
-                <p>Solar array + micro-hydro + battery storage, greywater recycling, and organic waste composting. Full energy independence and low carbon footprint.</p>
-                <i class="fas fa-charging-station" style="font-size: 2rem; color: #2b8c5e; margin: 20px 0 12px 0; display: inline-block;"></i>
-                <h3>Electric mobility</h3>
-                <p>Electric mountain bikes, ATVs, and community SUVs with charging stations. Helicopter taxi pad for direct access from Panama City (Tocumen).</p>
-            </div>
-            <div>
-                <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: #2b8c5e; margin-bottom: 16px;"></i>
-                <h3>Pathway to Panama Citizenship</h3>
-                <p>Fractional ownership includes legal services and a clear path to residency/citizenship within 5 years. Backed by a specialized management team with expertise in real estate, forestry, luxury hospitality, and finance.</p>
-                <i class="fas fa-chart-pie" style="font-size: 2rem; color: #2b8c5e; margin: 20px 0 12px 0;"></i>
-                <h3>Investment highlights</h3>
-                <p>Projected revenue growth from $3.8M (Year1) to $16.2M (Year5). EcoHome deposits from $35k, targeting middle-income expats. Diversified income: home sales, glamping, agroforestry products, and carbon credits.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Unique highlights similar to "The Land / The Business" sections from rootspanama template -->
-    <div style="margin: 48px 0;">
-        <h2 class="section-title">Your sanctuary in Eastern Panama</h2>
-        <div class="two-columns">
-            <div class="img-placeholder forest-bg" style="min-height: 280px; background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://placehold.co/700x500/bdc9b0/2a5a44?text=Lake+Bayano+Adventure'); background-size: cover;">
-                <span style="background: rgba(0,0,0,0.5); padding: 6px 14px; border-radius: 40px; color:white;">Lake Bayano & limestone caves</span>
-            </div>
-            <div>
-                <h3>Explore beyond the resort</h3>
-                <p><strong>Lake Bayano:</strong> boat trips, kayaking through canyons, and extensive cave systems. <strong>Mamoni River:</strong> class III-IV whitewater rafting just 30 minutes away. <strong>Cocobolo Nature Reserve:</strong> birdwatching with over 300 species. The historic Casco Antiguo and Panama City are within easy reach — yet you return to the serenity of the rainforest.</p>
-                <p>Chepo & Canita serve as gateway to wilder Panama: mountain biking, indigenous culture, and world-class tarpon fishing at Coquira marina. Whether you’re a digital nomad, retiree, or nature enthusiast, Sundrop Resort provides the perfect base for authentic adventures.</p>
-                <p><i class="fas fa-star-of-life" style="color: #1f5e3a;"></i> <strong>Wellness & longevity:</strong> On-site organic produce, agroforestry workshops, spa, and spring-fed lakes for swimming and fishing.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- EcoVillage project summary from PDF content -->
-    <div class="property-overview" style="background: #fefbf5;">
-        <h2 class="section-title">The EcoVillage: holistic living, redefined</h2>
-        <p style="margin-bottom: 20px;">The EcoVillage Project at Canita Reserve features a complete community ecosystem: The BLOC campus building with senior care, language-immersive child care, business center, social club, and commercial kitchen. Residents enjoy family-style meals (21 meals/week delivered), community gardens, sports courts, and cooperative livestock production.</p>
-        <div class="details-grid">
-            <div class="detail-item"><span class="detail-label">Senior & Childcare</span><span class="detail-value">On-site aides & preschool</span></div>
-            <div class="detail-item"><span class="detail-label">Co-op Farming</span><span class="detail-value">Chicken, rabbit, goat, pig</span></div>
-            <div class="detail-item"><span class="detail-label">Private lakes</span><span class="detail-value">Swimming & fishing</span></div>
-            <div class="detail-item"><span class="detail-label">24/7 Security</span><span class="detail-value">Armed private staff</span></div>
-        </div>
-        <div class="description-text">
-            <p><strong>Farm-to-Fork Cooperative:</strong> On-site production of vegetables, fruits, proteins, and trout farming. All integrated with forest restoration and permaculture. Every resident directly supports the local ecosystem while enjoying luxury amenities.</p>
-        </div>
-    </div>
-
-    <!-- fractional marketing / co-ownership mention (similar to "Dream" segment) -->
-    <div style="background: #eaf3ea; border-radius: 28px; padding: 32px; margin: 32px 0;">
-        <div class="two-columns" style="margin:0; gap:40px;">
-            <div>
-                <i class="fas fa-users" style="font-size: 2.3rem; color: #1f5e3a;"></i>
-                <h3 style="margin: 12px 0 8px;">Fractional ownership — smart entry</h3>
-                <p>Own a deeded share of an EcoHome with a lower capital commitment. Inspired by Pacaso & luxury residence clubs, our tech-enabled platform makes co-ownership seamless. Includes property management, rental income potential, and access to resort amenities. Starting deposits from 10-20% of home price.</p>
-            </div>
-            <div>
-                <i class="fas fa-chart-line" style="font-size: 2.3rem; color: #1f5e3a;"></i>
-                <h3 style="margin: 12px 0 8px;">Transparent financial model</h3>
-                <p>Based on our detailed business plan: $3.09M total initial investment, Year-5 net income projected $12.6M with strong ROI. We combine EcoHome sales, glamping revenue (ADR $140), agroforestry products, and carbon credits. Experienced management team (Knight, Garavito, Smith).</p>
-                <a href="#" class="btn-outline" style="margin-top: 12px;">Request investor deck <i class="fas fa-download"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- contact / CTA (similar to contact form but simplified) -->
-    <div style="text-align: center; margin: 50px 0 20px;">
-        <h2 class="section-title">Begin your journey</h2>
-        <p style="max-width: 600px; margin: 0 auto 24px;">Schedule a discovery stay, virtual tour, or request our EcoHome brochure. Live the restoration — where luxury meets purpose.</p>
-        <a href="#" class="btn-primary" style="font-size: 1.1rem;"><i class="fas fa-calendar-alt"></i> Plan your visit</a>
-        <a href="#" class="btn-outline" style="margin-left: 16px;"><i class="fas fa-envelope"></i> Contact our team</a>
-    </div>
-
-</div> <!-- end container -->
+</main>
 
 <footer>
     <div class="container">
-        <div class="footer-inner">
+        <div class="footer-grid">
             <div>
-                <div class="footer-logo">Sundrop Resort</div>
-                <div style="margin: 12px 0;">Canita Reserve, Chepo District, Panamá</div>
-                <div><i class="fas fa-phone-alt"></i> +507 1234 5678 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> hello@sundropcanita.com</div>
+                <div class="footer-logo">Sundrop Canita</div>
+                <p>Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
+                <p><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
             <div>
                 <h4>Explore</h4>
-                <p><a href="#" style="color:#cfe6db; text-decoration:none;">EcoHomes</a><br>
-                <a href="#" style="color:#cfe6db; text-decoration:none;">Agroforestry Project</a><br>
-                <a href="#" style="color:#cfe6db; text-decoration:none;">Glamping & Rates</a><br>
-                <a href="#" style="color:#cfe6db; text-decoration:none;">Investment & Citizenship</a></p>
+                <p><a href="#" id="footerEco" style="color:#cde0d6; text-decoration:none;">EcoHomes</a><br>
+                <a href="#" id="footerAgro" style="color:#cde0d6; text-decoration:none;">Agroforestry</a><br>
+                <a href="#" id="footerGlamp" style="color:#cde0d6; text-decoration:none;">Glamping Stays</a><br>
+                <a href="#" id="footerInvest" style="color:#cde0d6; text-decoration:none;">Investment</a></p>
             </div>
             <div>
                 <h4>Legal</h4>
-                <p><a href="#" style="color:#cfe6db; text-decoration:none;">Privacy Policy</a><br>
-                <a href="#" style="color:#cfe6db; text-decoration:none;">Terms of Use</a><br>
-                <span>© 2026 Sundrop Resort at Canita Reserve</span></p>
+                <p><a href="#" style="color:#cde0d6; text-decoration:none;">Privacy Policy</a><br>
+                <a href="#" style="color:#cde0d6; text-decoration:none;">Terms of Service</a><br>
+                <span>© 2026 Sundrop Canita</span></p>
             </div>
         </div>
-        <div class="small-print">
-            🌱 Regenerative ecotourism & rainforest restoration — “Our Rainforest, Your Paradise” 🌴
+        <div class="copyright">
+            🌿 "Our Rainforest, Your Paradise" — Regenerative luxury & forest restoration
         </div>
     </div>
 </footer>
 
-<!-- no extra scripts needed for static demo -->
+<!-- Modal for Inquiry -->
+<div id="inquiryModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h3><i class="fas fa-envelope"></i> Inquire about Sundrop Canita</h3>
+        <form id="inquiryForm">
+            <input type="text" placeholder="Full Name" required id="nameInput">
+            <input type="email" placeholder="Email Address" required id="emailInput">
+            <textarea rows="3" placeholder="Your message... (EcoHome, glamping or investment)"></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Send Request</button>
+        </form>
+        <p style="margin-top: 16px; font-size:0.8rem;">We'll respond within 24h.</p>
+    </div>
+</div>
+
+<script>
+    // Modal functionality
+    const modal = document.getElementById('inquiryModal');
+    const inquiryBtns = document.querySelectorAll('#inquiryBtnHeader, #investBtn, #discoveryBtn, #footerInvest, #footerEco, #footerAgro, #footerGlamp');
+    const closeModal = document.getElementById('closeModalBtn');
+    
+    function openModal() {
+        modal.style.display = 'flex';
+    }
+    
+    inquiryBtns.forEach(btn => {
+        if(btn) btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    });
+    
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+        if(e.target === modal) modal.style.display = 'none';
+    });
+    
+    // Form submission alert
+    const form = document.getElementById('inquiryForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! A Sundrop Canita specialist will contact you within 24 hours.');
+        modal.style.display = 'none';
+        form.reset();
+    });
+    
+    // Navigation button alerts (all clickable items show interactive feedback)
+    const navHome = document.getElementById('nav-home');
+    const navDevelopments = document.getElementById('nav-developments');
+    const navContact = document.getElementById('nav-contact');
+    const langBtn = document.getElementById('langBtn');
+    
+    navHome.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    navDevelopments.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Explore Sundrop Canita EcoVillage: 55 EcoHomes, rental apartments, workforce housing, and the BLOC community center. Contact us for detailed master plan.');
+    });
+    
+    navContact.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+    
+    langBtn.addEventListener('click', () => {
+        alert('Español / English versions coming soon. Contact our bilingual team for assistance.');
+    });
+    
+    // additional interactive elements
+    document.getElementById('investBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+    document.getElementById('discoveryBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+    
+    // smooth scroll for any other CTA
+    console.log('Sundrop Canita — fully interactive website ready');
+</script>
+
+<!-- ensure all images are high quality and styled -->
 </body>
 </html>
+```
