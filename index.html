@@ -21,6 +21,7 @@
             line-height: 1.5;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
+            touch-action: pan-x pan-y;
         }
 
         .container {
@@ -70,7 +71,7 @@
         .hover-lift { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
         .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.15); }
 
-        /* Header */
+        /* Header - Hide on scroll down, show on scroll up */
         .site-header {
             padding: 20px 0;
             border-bottom: 1px solid #e8ece4;
@@ -104,7 +105,7 @@
         }
         @media (max-width: 768px) {
             body {
-                padding-top: 120px;
+                padding-top: 110px;
             }
         }
 
@@ -233,7 +234,7 @@
             box-shadow: 0 8px 20px rgba(26,77,46,0.4);
         }
 
-        /* Mobile Navigation */
+        /* Mobile Navigation Fix */
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -589,7 +590,7 @@
             flex-wrap: wrap;
             gap: 50px;
         }
-        .footer-logo {
+        .footer-logo-img {
             height: 55px;
             width: auto;
             filter: brightness(0) invert(1);
@@ -694,7 +695,6 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- Header Logo -->
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
                      alt="SunDrop Canita Logo" 
                      class="logo-img"
@@ -829,13 +829,11 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <!-- FOOTER SVG LOGO - Using the exact link you provided -->
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/image-149.svg" 
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
                      alt="SunDrop Canita Logo" 
-                     class="footer-logo"
+                     class="footer-logo-img"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <!-- Fallback text logo if SVG fails -->
-                <div style="display: none; margin-bottom: 16px;">
+                <div style="display: none;">
                     <div style="font-size: 0.55rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
                     <div style="font-size: 1rem; font-weight: 700; color: white;">SunDrop RESORT</div>
                     <div style="font-size: 0.65rem; color: #8fbc9a;">CANITA RESERVE</div>
@@ -880,7 +878,7 @@
 </div>
 
 <script>
-    // Header hide/show on scroll
+    // ========== HEADER HIDE/SHOW ON SCROLL ==========
     let lastScrollTop = 0;
     const header = document.getElementById('siteHeader');
     const scrollThreshold = 50;
@@ -903,18 +901,21 @@
         lastScrollTop = scrollTop;
     });
 
-    // Smooth scroll to section
+    // Smooth scroll function
     function smoothScrollToElement(elementId) {
         const element = document.getElementById(elementId);
         if (element) {
             const headerHeight = document.getElementById('siteHeader').offsetHeight;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     }
 
-    // Developments button click
+    // Developments button
     document.getElementById('navDevelopments').addEventListener('click', function(e) {
         e.preventDefault();
         smoothScrollToElement('villageColumn');
