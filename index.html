@@ -68,7 +68,7 @@
         .hover-lift { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
         .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.15); }
 
-        /* Header - Fixed position with proper mobile behavior */
+        /* Header - Hide on scroll down, show on scroll up */
         .site-header {
             padding: 20px 0;
             border-bottom: 1px solid #e8ece4;
@@ -78,7 +78,11 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease, padding 0.3s ease, background 0.3s ease;
+            transform: translateY(0);
+        }
+        .site-header.hide {
+            transform: translateY(-100%);
         }
         .site-header.scrolled {
             padding: 10px 0;
@@ -98,7 +102,7 @@
         }
         @media (max-width: 768px) {
             body {
-                padding-top: 120px;
+                padding-top: 110px;
             }
         }
 
@@ -227,7 +231,7 @@
             box-shadow: 0 8px 20px rgba(26,77,46,0.4);
         }
 
-        /* Mobile Navigation Fix */
+        /* Mobile Navigation Fix - Permanent positioning */
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -235,25 +239,28 @@
             }
             .nav-menu {
                 justify-content: center;
-                gap: 15px;
+                gap: 12px;
             }
             .nav-menu a {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 white-space: nowrap;
             }
             .lang-selector {
-                padding: 5px 12px;
-                font-size: 0.75rem;
+                padding: 5px 10px;
+                font-size: 0.7rem;
             }
             .inquiry-btn {
-                padding: 6px 18px;
-                font-size: 0.8rem;
+                padding: 5px 14px;
+                font-size: 0.75rem;
             }
             .logo-img {
-                height: 50px;
+                height: 45px;
             }
             .tagline-header {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
+            }
+            .logo-area {
+                justify-content: center;
             }
         }
 
@@ -319,6 +326,9 @@
             }
             .hero-overlay {
                 padding: 40px 24px;
+            }
+            .hero-section {
+                min-height: 400px;
             }
         }
 
@@ -682,9 +692,15 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1%20-%20Copy.jpg" 
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
                      alt="SunDrop Canita Logo" 
-                     class="logo-img">
+                     class="logo-img"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="display: none; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 0.55rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
+                    <span style="font-size: 1rem; font-weight: 800; color: #1a4d2e;">SunDrop RESORT</span>
+                    <span style="font-size: 0.65rem; color: #2d8c5a;">CANITA RESERVE</span>
+                </div>
                 <span class="tagline-header" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
             <div class="nav-menu">
@@ -734,7 +750,7 @@
             </div>
         </div>
 
-        <!-- Two Column Details - The EcoVillage & Resort Section -->
+        <!-- Two Column Details -->
         <div class="two-col-grid">
             <div class="animate-fadeLeft hover-lift" id="landColumn" style="background: white; border-radius: 24px; padding: 25px;">
                 <i class="fas fa-tree float-animation" style="font-size: 2.2rem; color: #1a4d2e; margin-bottom: 20px;"></i>
@@ -859,23 +875,40 @@
 </div>
 
 <script>
-    // Header scroll effect
+    // ========== HEADER HIDE/SHOW ON SCROLL ==========
+    let lastScrollTop = 0;
+    const header = document.getElementById('siteHeader');
+    const scrollThreshold = 50;
+
     window.addEventListener('scroll', function() {
-        const header = document.getElementById('siteHeader');
-        if (window.scrollY > 50) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class for styling
+        if (scrollTop > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+        
+        // Hide/show header based on scroll direction
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // Scrolling down - hide header
+            header.classList.add('hide');
+        } else if (scrollTop < lastScrollTop) {
+            // Scrolling up - show header
+            header.classList.remove('hide');
+        }
+        
+        lastScrollTop = scrollTop;
     });
 
     // Smooth scroll to section function
     function smoothScrollToElement(elementId) {
         const element = document.getElementById(elementId);
         if (element) {
-            const headerOffset = 100;
+            const headerHeight = document.getElementById('siteHeader').offsetHeight;
             const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
@@ -884,10 +917,13 @@
     }
 
     // Developments button - scroll to EcoVillage & Resort section
-    document.getElementById('navDevelopments').addEventListener('click', function(e) {
-        e.preventDefault();
-        smoothScrollToElement('villageColumn');
-    });
+    const developmentsBtn = document.getElementById('navDevelopments');
+    if (developmentsBtn) {
+        developmentsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            smoothScrollToElement('villageColumn');
+        });
+    }
 
     // Video: Desktop 11.mp4, Mobile 2.mp4
     const video = document.getElementById('heroVideo');
