@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>SunDrop Canita | Eco Resort at Canita Reserve, Panama</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -19,6 +20,8 @@
             color: #1a2a22;
             line-height: 1.5;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            touch-action: pan-x pan-y;
         }
 
         .container {
@@ -231,7 +234,7 @@
             box-shadow: 0 8px 20px rgba(26,77,46,0.4);
         }
 
-        /* Mobile Navigation Fix - Permanent positioning */
+        /* Mobile Navigation Fix */
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -883,26 +886,22 @@
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Add scrolled class for styling
         if (scrollTop > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
         
-        // Hide/show header based on scroll direction
         if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
-            // Scrolling down - hide header
             header.classList.add('hide');
         } else if (scrollTop < lastScrollTop) {
-            // Scrolling up - show header
             header.classList.remove('hide');
         }
         
         lastScrollTop = scrollTop;
     });
 
-    // Smooth scroll to section function
+    // Smooth scroll function
     function smoothScrollToElement(elementId) {
         const element = document.getElementById(elementId);
         if (element) {
@@ -916,16 +915,13 @@
         }
     }
 
-    // Developments button - scroll to EcoVillage & Resort section
-    const developmentsBtn = document.getElementById('navDevelopments');
-    if (developmentsBtn) {
-        developmentsBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            smoothScrollToElement('villageColumn');
-        });
-    }
+    // Developments button
+    document.getElementById('navDevelopments').addEventListener('click', function(e) {
+        e.preventDefault();
+        smoothScrollToElement('villageColumn');
+    });
 
-    // Video: Desktop 11.mp4, Mobile 2.mp4
+    // Video source
     const video = document.getElementById('heroVideo');
     const videoSource = document.getElementById('videoSource');
     
@@ -935,14 +931,12 @@
             ? "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/2.mp4"
             : "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/11.mp4";
         video.load();
-        video.play().catch(() => {
-            console.log("Video autoplay failed");
-        });
+        video.play().catch(() => {});
     }
     setVideoSource();
     window.addEventListener('resize', setVideoSource);
 
-    // Gallery Images
+    // Gallery
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
@@ -969,7 +963,7 @@
         galleryGrid.appendChild(imgDiv);
     });
 
-    // Scroll Animations
+    // Scroll animations
     const animatedElements = ['propertyCard', 'landColumn', 'villageColumn', 'investSection', 'gallerySection', 'attractionsCard'];
     function checkScroll() {
         animatedElements.forEach(id => {
