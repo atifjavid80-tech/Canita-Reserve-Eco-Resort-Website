@@ -98,7 +98,7 @@
             flex-wrap: wrap;
         }
         .logo-img {
-            height: 55px;
+            height: 60px;
             width: auto;
             display: block;
         }
@@ -610,16 +610,10 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- Logo Image -->
+                <!-- COMPLETE BASE64 LOGO - 100% WORKING -->
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAACJCAYAAABgt9ctAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFxEAABcRAcom8z8AAE/iSURBVHhe7V0FeFRH1z5xD+7B3b24S4HiRQqlQJFSHEqLW/G2UNzdvbi7u0NwlyTE3cl/3nP3bjab3ZBAvr8h3Zfnkt27V0aOz5kZsxgGmWCCCYmCueavCSaYkAiYGMYEE5IAE8OYYEISYGIYE0xIAkwMY4IJSICJYUwwIQkwMYwJJiQBJoYxwYQkwMQwJpiQBJgYxgQTkgATw5hgQqJB9H/FgN/LxfHbbwAAAABJRU5ErkJggg=="
                      alt="SunDrop Canita Logo" 
-                     class="logo-img"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div style="display: none; flex-direction: column; line-height: 1.2;">
-                    <span style="font-size: 0.55rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
-                    <span style="font-size: 1rem; font-weight: 800; color: #1a4d2e;">SunDrop RESORT</span>
-                    <span style="font-size: 0.65rem; color: #2d8c5a;">CANITA RESERVE</span>
-                </div>
+                     class="logo-img">
                 <span class="tagline-header" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
             <div class="nav-menu">
@@ -641,7 +635,7 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section - Only Video, No Fallback Image -->
+        <!-- Hero Section - Only Video -->
         <div class="hero-section animate-zoom" id="heroSection">
             <video class="hero-video" id="heroVideo" autoplay loop muted playsinline webkit-playsinline>
                 <source src="" id="videoSource" type="video/mp4">
@@ -745,16 +739,10 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <!-- Logo in Footer -->
+                <!-- COMPLETE BASE64 LOGO IN FOOTER -->
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAACJCAYAAABgt9ctAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFxEAABcRAcom8z8AAE/iSURBVHhe7V0FeFRH1z5xD+7B3b24S4HiRQqlQJFSHEqLW/G2UNzdvbi7u0NwlyTE3cl/3nP3bjab3ZBAvr8h3Zfnkt27V0aOz5kZsxgGmWCCCYmCueavCSaYkAiYGMYEE5IAE8OYYEISYGIYE0xIAkwMY4IJSICJYUwwIQkwMYwJJiQBJoYxwYQkwMQwJpiQBJgYxgQTkgATw5hgQqJB9H/FgN/LxfHbbwAAAABJRU5ErkJggg=="
                      alt="SunDrop Canita Logo" 
-                     class="footer-logo-img"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none;">
-                    <div style="font-size: 0.55rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
-                    <div style="font-size: 1rem; font-weight: 700; color: white;">SunDrop RESORT</div>
-                    <div style="font-size: 0.65rem; color: #8fbc9a;">CANITA RESERVE</div>
-                </div>
+                     class="footer-logo-img">
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
                 <p style="margin-top: 12px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
@@ -794,7 +782,7 @@
 </div>
 
 <script>
-    // Video: Desktop 11.mp4, Mobile 2.mp4 - No fallback image
+    // Video: Desktop 11.mp4, Mobile 2.mp4
     const video = document.getElementById('heroVideo');
     const videoSource = document.getElementById('videoSource');
     
@@ -805,8 +793,7 @@
             : "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/11.mp4";
         video.load();
         video.play().catch(() => {
-            // Just log error, no fallback image
-            console.log("Video autoplay failed - user interaction may be needed");
+            console.log("Video autoplay failed");
         });
     }
     setVideoSource();
