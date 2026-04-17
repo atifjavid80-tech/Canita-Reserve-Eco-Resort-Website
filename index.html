@@ -560,89 +560,46 @@
         }
         .gallery-item:hover .gallery-caption { bottom: 0; }
 
-        /* Footer - FIXED */
-        footer {
-            background: linear-gradient(135deg, #121f18, #0e1913);
-            color: #cbdcd2;
-            padding: 60px 0 32px;
-            margin-top: 64px;
-        }
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 50px;
-        }
-        .footer-logo-img {
-            height: 55px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-        }
-        .footer-logo-img:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-        .footer-logo-text {
-            margin-bottom: 16px;
-        }
-        .footer-logo-text div:first-child {
-            font-size: 0.6rem;
-            letter-spacing: 1px;
-            color: #8fbc9a;
-        }
-        .footer-logo-text div:nth-child(2) {
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
-        }
-        .footer-logo-text div:nth-child(3) {
-            font-size: 0.65rem;
-            color: #8fbc9a;
-        }
-        .footer-logo-text div:last-child {
-            font-size: 0.55rem;
-            color: #8fbc9a;
-        }
-        .footer-section h4 {
-            margin-bottom: 16px;
-            font-size: 1rem;
-            color: #e2f0e6;
-            position: relative;
-            display: inline-block;
-        }
-        .footer-section h4::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 35px;
-            height: 2px;
-            background: #2d8c5a;
-        }
-        .footer-section p, .footer-section a {
-            font-size: 0.8rem;
-            line-height: 2;
-        }
-        .footer-section a {
-            color: #cbdcd2;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .footer-section a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-        .copyright {
-            text-align: center;
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid #2a4034;
-            font-size: 0.75rem;
-        }
+        <!-- Footer Section - FIXED LOGO -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <!-- Logo Image with Text Fallback -->
+                <div style="margin-bottom: 16px;">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
+                         alt="SunDrop Canita Logo" 
+                         style="height: 55px; width: auto; filter: brightness(0) invert(1); opacity: 0.9;"
+                         onerror="this.style.display='none'; this.parentElement.querySelector('.footer-logo-fallback').style.display='block';">
+                    <div class="footer-logo-fallback" style="display: none;">
+                        <div style="font-size: 0.6rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
+                        <div style="font-size: 1rem; font-weight: 700; color: white;">SunDrop RESORT</div>
+                        <div style="font-size: 0.65rem; color: #8fbc9a;">CANITA RESERVE</div>
+                        <div style="font-size: 0.55rem; color: #8fbc9a;">CHEPO, PANAMA</div>
+                    </div>
+                </div>
+                <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
+                <p style="margin-top: 12px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="footerExplore">Explore</h4>
+                <p><a href="#" id="footerEco">EcoHomes</a></p>
+                <p><a href="#" id="footerGlamp">Glamping Stays</a></p>
+                <p><a href="#" id="footerInvest">Investment</a></p>
+                <p><a href="#" id="footerAgro">Agroforestry</a></p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="footerLegal">Legal</h4>
+                <p>Privacy Policy</p>
+                <p>Terms of Service</p>
+                <p>© 2026 SunDrop Canita</p>
+            </div>
+        </div>
+        <div class="copyright">
+            🌿 <span data-translate="footerTagline">"Our Rainforest, Your Paradise" — Regenerative luxury & forest restoration</span>
+        </div>
+    </div>
+</footer>
 
         /* Modal */
         .modal {
