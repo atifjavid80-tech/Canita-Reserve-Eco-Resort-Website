@@ -27,7 +27,7 @@
             padding: 0 32px;
         }
 
-        /* ========== ENHANCED ANIMATIONS ========== */
+        /* ========== ANIMATIONS ========== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
@@ -57,11 +57,6 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-3deg); }
-            75% { transform: rotate(3deg); }
-        }
 
         .animate-fadeUp { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
         .animate-fadeLeft { animation: fadeInLeft 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
@@ -70,7 +65,6 @@
         .float-animation { animation: float 4s ease-in-out infinite; }
         .pulse-animation { animation: pulse 2s ease-in-out infinite; }
         .glow-animation { animation: glowPulse 2s infinite; }
-        .wiggle-on-hover:hover { animation: wiggle 0.3s ease; }
         .hover-lift { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
         .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.15); }
 
@@ -304,7 +298,6 @@
             border-radius: 3px;
             transition: width 0.3s ease;
         }
-        .section-title:hover::after { width: 100px; }
         .details-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -612,10 +605,13 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- Base64 Logo - Will ALWAYS show -->
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAACJCAYAAABgt9ctAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFxEAABcRAcom8z8AAE/iSURBVHhe7V0FeFRH1z5xD+7B3b24S4HiRQqlQJFSHEqLW/G2UNzdvbi7u0NwlyTE3cl/3nP3bjab3ZBAvr8h3Zfnkt27V0aOz5kZsxgGmWCCCYmCueavCSaYkAiYGMYEE5IAE8OYYEISYGIYE0xIAkwMY4IJSYCJYUwwIQkwMYwJJiQBJoYxwYQkwMQwJpiQBJgYxgQTkgATw5hgQqJB9H/FgN/LxfHbbwAAAABJRU5ErkJggg=="
-                     alt="SunDrop Canita Logo" 
-                     class="logo-img">
+                <!-- TEXT LOGO (Always works) -->
+                <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span style="font-size: 0.55rem; letter-spacing: 1px; color: #1a4d2e; font-weight: 600;">THE BLO</span>
+                    <span style="font-size: 1rem; font-weight: 800; color: #1a4d2e;">SunDrop RESORT</span>
+                    <span style="font-size: 0.65rem; letter-spacing: 0.5px; color: #2d8c5a; font-weight: 500;">CANITA RESERVE</span>
+                    <span style="font-size: 0.55rem; color: #6b7a6e;">CHEPO, PANAMA</span>
+                </div>
                 <span class="tagline-header" data-translate="tagline">Canita Reserve · Panamá</span>
             </div>
             <div class="nav-menu">
@@ -695,12 +691,12 @@
         <div class="green-bg hover-lift" id="investSection">
             <div class="two-col-grid" style="margin: 0; gap: 40px;">
                 <div>
-                    <h3 style="margin-bottom: 16px;" data-translate="investTitle"><i class="fas fa-chart-line wiggle-on-hover"></i> Investment Highlights</h3>
+                    <h3 style="margin-bottom: 16px;" data-translate="investTitle"><i class="fas fa-chart-line"></i> Investment Highlights</h3>
                     <p data-translate="investDesc">Projected revenue from $3.86M (Year 1) to $16.2M (Year 5). EcoHome starting at $160,000.</p>
                     <p style="margin-top: 16px;" data-translate="investCitz"><strong>Pathway to Panama Citizenship:</strong> Ownership includes legal services and residency-to-citizenship track within 5 years.</p>
                 </div>
                 <div>
-                    <h3 style="margin-bottom: 16px;" data-translate="energyTitle"><i class="fas fa-solar-panel wiggle-on-hover"></i> Off-Grid Resilience</h3>
+                    <h3 style="margin-bottom: 16px;" data-translate="energyTitle"><i class="fas fa-solar-panel"></i> Off-Grid Resilience</h3>
                     <p data-translate="energyDesc">Solar array + micro-hydro + battery storage · Greywater recycling · Electric ATVs & community SUVs · Starlink internet.</p>
                 </div>
             </div>
@@ -717,15 +713,15 @@
             <h2 class="section-title" data-translate="attractionsTitle">Gateway to Eastern Panama</h2>
             <div class="two-col-grid" style="margin-top: 0;">
                 <div>
-                    <h4><i class="fas fa-water wiggle-on-hover"></i> <span data-translate="lakeTitle">Lake Bayano & Caves</span></h4>
+                    <h4><i class="fas fa-water"></i> <span data-translate="lakeTitle">Lake Bayano & Caves</span></h4>
                     <p data-translate="lakeDesc">Boat trips, kayaking through canyons, limestone caves, and tarpon fishing. Only 20 minutes from Canita.</p>
-                    <h4 style="margin-top: 20px;"><i class="fas fa-mountain wiggle-on-hover"></i> <span data-translate="riverTitle">Mamoni River</span></h4>
+                    <h4 style="margin-top: 20px;"><i class="fas fa-mountain"></i> <span data-translate="riverTitle">Mamoni River</span></h4>
                     <p data-translate="riverDesc">Class III-IV whitewater rafting, year-round, 30 minutes away.</p>
                 </div>
                 <div>
-                    <h4><i class="fas fa-bird wiggle-on-hover"></i> <span data-translate="cocoboloTitle">Cocobolo Nature Reserve</span></h4>
+                    <h4><i class="fas fa-bird"></i> <span data-translate="cocoboloTitle">Cocobolo Nature Reserve</span></h4>
                     <p data-translate="cocoboloDesc">Over 300 bird species, primary forest hiking, and stargazing.</p>
-                    <h4 style="margin-top: 20px;"><i class="fas fa-city wiggle-on-hover"></i> <span data-translate="cityTitle">Panama City & Casco Antiguo</span></h4>
+                    <h4 style="margin-top: 20px;"><i class="fas fa-city"></i> <span data-translate="cityTitle">Panama City & Casco Antiguo</span></h4>
                     <p data-translate="cityDesc">UNESCO World Heritage sites, modern amenities, airport 1.5 hours away.</p>
                 </div>
             </div>
@@ -741,10 +737,13 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <!-- Base64 Logo in Footer -->
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAACJCAYAAABgt9ctAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFxEAABcRAcom8z8AAE/iSURBVHhe7V0FeFRH1z5xD+7B3b24S4HiRQqlQJFSHEqLW/G2UNzdvbi7u0NwlyTE3cl/3nP3bjab3ZBAvr8h3Zfnkt27V0aOz5kZsxgGmWCCCYmCueavCSaYkAiYGMYEE5IAE8OYYEISYGIYE0xIAkwMY4IJSICJYUwwIQkwMYwJJiQBJoYxwYQkwMQwJpiQBJgYxgQTkgATw5hgQqJB9H/FgN/LxfHbbwAAAABJRU5ErkJggg=="
-                     alt="SunDrop Canita Logo" 
-                     class="footer-logo-img">
+                <!-- TEXT LOGO in Footer (Always works) -->
+                <div style="margin-bottom: 16px;">
+                    <div style="font-size: 0.55rem; letter-spacing: 1px; color: #8fbc9a;">THE BLO</div>
+                    <div style="font-size: 1rem; font-weight: 700; color: white;">SunDrop RESORT</div>
+                    <div style="font-size: 0.65rem; letter-spacing: 0.5px; color: #8fbc9a;">CANITA RESERVE</div>
+                    <div style="font-size: 0.55rem; color: #8fbc9a;">CHEPO, PANAMA</div>
+                </div>
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
                 <p style="margin-top: 12px;"><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
             </div>
