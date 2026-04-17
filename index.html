@@ -68,7 +68,7 @@
         .hover-lift { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
         .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.15); }
 
-        /* Header - with scroll shrink effect */
+        /* Header - Fixed position with proper mobile behavior */
         .site-header {
             padding: 20px 0;
             border-bottom: 1px solid #e8ece4;
@@ -93,13 +93,12 @@
             padding: 6px 20px;
             font-size: 0.8rem;
         }
-        /* Add padding to body to account for fixed header */
         body {
             padding-top: 85px;
         }
         @media (max-width: 768px) {
             body {
-                padding-top: 75px;
+                padding-top: 120px;
             }
         }
 
@@ -108,7 +107,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
         }
         .logo-area {
             display: flex;
@@ -131,7 +130,7 @@
         }
         .nav-menu {
             display: flex;
-            gap: 32px;
+            gap: 25px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -143,6 +142,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            white-space: nowrap;
         }
         .nav-menu a::after {
             content: '';
@@ -227,6 +227,36 @@
             box-shadow: 0 8px 20px rgba(26,77,46,0.4);
         }
 
+        /* Mobile Navigation Fix */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-menu {
+                justify-content: center;
+                gap: 15px;
+            }
+            .nav-menu a {
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            .lang-selector {
+                padding: 5px 12px;
+                font-size: 0.75rem;
+            }
+            .inquiry-btn {
+                padding: 6px 18px;
+                font-size: 0.8rem;
+            }
+            .logo-img {
+                height: 50px;
+            }
+            .tagline-header {
+                font-size: 0.6rem;
+            }
+        }
+
         /* Hero Section */
         .hero-section {
             position: relative;
@@ -281,6 +311,15 @@
             color: rgba(255,255,255,0.95);
             font-size: 1.3rem;
             font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .hero-overlay h1 {
+                font-size: 2rem;
+                max-width: 100%;
+            }
+            .hero-overlay {
+                padding: 40px 24px;
+            }
         }
 
         /* Property Card */
@@ -446,6 +485,17 @@
             gap: 20px;
             flex-wrap: wrap;
         }
+        @media (max-width: 480px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary, .btn-outline {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+        }
 
         /* Gallery */
         .gallery-section {
@@ -498,6 +548,21 @@
             transition: bottom 0.4s ease;
         }
         .gallery-item:hover .gallery-caption { bottom: 0; }
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .property-card { padding: 25px; }
+            .section-title { font-size: 1.5rem; }
+            .price { font-size: 1.5rem; }
+            .two-col-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .section-title::after { left: 50%; transform: translateX(-50%); }
+            .section-title { text-align: center; display: block; }
+        }
 
         /* Footer */
         footer {
@@ -556,6 +621,17 @@
             border-top: 1px solid #2a4034;
             font-size: 0.75rem;
         }
+        @media (max-width: 768px) {
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
 
         /* Modal */
         .modal {
@@ -598,30 +674,6 @@
             transform: rotate(90deg);
             color: #1a4d2e;
         }
-
-        @media (max-width: 1024px) {
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .two-col-grid { grid-template-columns: 1fr; gap: 30px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .hero-overlay h1 { font-size: 2rem; max-width: 100%; }
-            .hero-overlay { padding: 40px 24px; }
-            .property-card { padding: 25px; }
-            .section-title { font-size: 1.5rem; }
-            .price { font-size: 1.5rem; }
-            .nav-menu { gap: 16px; }
-            .logo-img { height: 45px; }
-        }
-        @media (max-width: 480px) {
-            .header-inner { flex-direction: column; align-items: center; text-align: center; }
-            .nav-menu { justify-content: center; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .section-title::after { left: 50%; transform: translateX(-50%); }
-            .section-title { text-align: center; display: block; }
-            .button-group { flex-direction: column; align-items: center; }
-        }
     </style>
 </head>
 <body>
@@ -630,8 +682,7 @@
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
-                <!-- ORIGINAL PNG IMAGE LOGO -->
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1_-_Copy-removebg-preview.png" 
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
                      alt="SunDrop Canita Logo" 
                      class="logo-img">
                 <span class="tagline-header" data-translate="tagline">Canita Reserve · Panamá</span>
@@ -655,7 +706,7 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section - Only Video -->
+        <!-- Hero Section -->
         <div class="hero-section animate-zoom" id="heroSection">
             <video class="hero-video" id="heroVideo" autoplay loop muted playsinline webkit-playsinline>
                 <source src="" id="videoSource" type="video/mp4">
@@ -683,7 +734,7 @@
             </div>
         </div>
 
-        <!-- Two Column Details -->
+        <!-- Two Column Details - The EcoVillage & Resort Section -->
         <div class="two-col-grid">
             <div class="animate-fadeLeft hover-lift" id="landColumn" style="background: white; border-radius: 24px; padding: 25px;">
                 <i class="fas fa-tree float-animation" style="font-size: 2.2rem; color: #1a4d2e; margin-bottom: 20px;"></i>
@@ -759,7 +810,6 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-section">
-                <!-- ORIGINAL PNG IMAGE LOGO IN FOOTER - FIXED -->
                 <img src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Picture1.png" 
                      alt="SunDrop Canita Logo" 
                      class="footer-logo-img"
@@ -809,7 +859,7 @@
 </div>
 
 <script>
-    // Header scroll effect - shrink on scroll
+    // Header scroll effect
     window.addEventListener('scroll', function() {
         const header = document.getElementById('siteHeader');
         if (window.scrollY > 50) {
@@ -817,6 +867,26 @@
         } else {
             header.classList.remove('scrolled');
         }
+    });
+
+    // Smooth scroll to section function
+    function smoothScrollToElement(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Developments button - scroll to EcoVillage & Resort section
+    document.getElementById('navDevelopments').addEventListener('click', function(e) {
+        e.preventDefault();
+        smoothScrollToElement('villageColumn');
     });
 
     // Video: Desktop 11.mp4, Mobile 2.mp4
@@ -987,7 +1057,6 @@
         e.target.reset();
     });
     document.getElementById('navHome').addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    document.getElementById('navDevelopments').addEventListener('click', (e) => { e.preventDefault(); alert(currentLang === 'en' ? 'Developments: 55 EcoHomes, 60 rentals, 75 glamping sites. Contact us for details.' : 'Desarrollos: 55 EcoHomes, 60 apartamentos, 75 sitios glamping. Contáctenos para detalles.'); });
     document.getElementById('navContact').addEventListener('click', (e) => { e.preventDefault(); modal.style.display = 'flex'; });
 </script>
 </body>
