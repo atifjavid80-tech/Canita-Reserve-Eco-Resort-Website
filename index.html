@@ -27,11 +27,11 @@
             padding: 0 32px;
         }
 
-        /* Animations */
+        /* ========== ANIMATIONS ========== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -42,7 +42,7 @@
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
@@ -53,7 +53,7 @@
         @keyframes fadeInRight {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(50px);
             }
             to {
                 opacity: 1;
@@ -64,12 +64,34 @@
         @keyframes zoomIn {
             from {
                 opacity: 0;
-                transform: scale(0.95);
+                transform: scale(0.9);
             }
             to {
                 opacity: 1;
                 transform: scale(1);
             }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
         }
 
         .animate-fadeUp {
@@ -85,7 +107,29 @@
         }
 
         .animate-zoom {
-            animation: zoomIn 0.6s ease forwards;
+            animation: zoomIn 0.7s ease forwards;
+        }
+
+        .animate-slide {
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        /* Hover animations */
+        .hover-grow {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-grow:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
         }
 
         /* Header */
@@ -97,6 +141,11 @@
             top: 0;
             z-index: 1000;
             width: 100%;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .header-inner {
@@ -118,6 +167,11 @@
             height: 55px;
             width: auto;
             display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .tagline-header {
@@ -140,8 +194,24 @@
             font-weight: 500;
             color: #2a4236;
             font-size: 0.9rem;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a4d2e;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
         }
 
         .nav-menu a:hover {
@@ -159,6 +229,11 @@
             font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-selector:hover {
+            background: #e8ede4;
         }
 
         .lang-dropdown {
@@ -172,6 +247,7 @@
             min-width: 130px;
             display: none;
             z-index: 100;
+            animation: fadeInUp 0.2s ease;
         }
 
         .lang-selector.active .lang-dropdown {
@@ -184,6 +260,7 @@
             font-size: 0.85rem;
             color: #2a4236;
             text-decoration: none;
+            transition: background 0.2s;
         }
 
         .lang-dropdown a:hover {
@@ -195,11 +272,17 @@
             color: white !important;
             padding: 10px 28px;
             border-radius: 40px;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
         }
 
         .inquiry-btn:hover {
             background: #0f3820;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26,77,46,0.3);
+        }
+
+        .inquiry-btn::after {
+            display: none;
         }
 
         /* Hero Section with Video Background */
@@ -243,6 +326,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 20px;
+            animation: pulse 2s infinite;
         }
 
         .hero-overlay h1 {
@@ -269,6 +353,11 @@
             padding: 40px;
             margin: 40px 0;
             opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .property-id {
@@ -284,6 +373,19 @@
             margin-bottom: 28px;
             color: #1a3a2a;
             letter-spacing: -0.01em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2d8c5a;
+            border-radius: 3px;
         }
 
         .details-row {
@@ -294,12 +396,22 @@
             padding: 32px;
             border-radius: 20px;
             margin: 28px 0;
+            transition: all 0.3s ease;
+        }
+
+        .details-row:hover {
+            background: #f5faf3;
         }
 
         .detail-block {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-block:hover {
+            transform: translateX(5px);
         }
 
         .detail-label {
@@ -321,6 +433,12 @@
             font-weight: 800;
             color: #1a4d2e;
             margin: 24px 0 8px;
+            transition: all 0.3s ease;
+        }
+
+        .price:hover {
+            transform: scale(1.02);
+            color: #0e3a22;
         }
 
         .price-note {
@@ -353,12 +471,22 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(8px);
         }
 
         .feature-list li i {
             width: 24px;
             color: #2d8c5a;
             font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-list li:hover i {
+            transform: scale(1.2);
         }
 
         .green-bg {
@@ -367,6 +495,11 @@
             padding: 40px;
             margin: 40px 0;
             opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .green-bg:hover {
+            background: #eaf5e6;
         }
 
         .btn-primary {
@@ -377,15 +510,33 @@
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
             background: #0e3a22;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26,77,46,0.3);
         }
 
         .btn-outline {
@@ -397,13 +548,15 @@
             color: #1a4d2e;
             text-decoration: none;
             display: inline-block;
-            transition: 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .btn-outline:hover {
             background: #1a4d2e;
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26,77,46,0.2);
         }
 
         /* Gallery Section */
@@ -421,31 +574,52 @@
 
         .gallery-item {
             border-radius: 20px;
-            height: 240px;
+            height: 260px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
         .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.2);
         }
 
         .gallery-caption {
             position: absolute;
-            bottom: 0;
+            bottom: -40px;
             left: 0;
             right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
             color: white;
             padding: 15px;
             font-size: 0.8rem;
             font-weight: 500;
             text-align: center;
+            transition: bottom 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            bottom: 0;
         }
 
         /* Footer */
@@ -469,12 +643,29 @@
             filter: brightness(0) invert(1);
             opacity: 0.9;
             margin-bottom: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            opacity: 1;
         }
 
         .footer-section h4 {
             margin-bottom: 16px;
             font-size: 1rem;
             color: #e2f0e6;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #2d8c5a;
         }
 
         .footer-section p, .footer-section a {
@@ -485,10 +676,12 @@
         .footer-section a {
             color: #cbdcd2;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .footer-section a:hover {
             color: white;
+            padding-left: 5px;
         }
 
         .copyright {
@@ -511,6 +704,7 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
+            animation: fadeInUp 0.3s ease;
         }
 
         .modal-content {
@@ -520,6 +714,7 @@
             border-radius: 24px;
             padding: 32px;
             text-align: center;
+            animation: zoomIn 0.3s ease;
         }
 
         .modal-content input, .modal-content textarea {
@@ -529,12 +724,24 @@
             border: 1px solid #ddd;
             border-radius: 12px;
             font-family: inherit;
+            transition: border 0.3s ease;
+        }
+
+        .modal-content input:focus, .modal-content textarea:focus {
+            outline: none;
+            border-color: #1a4d2e;
         }
 
         .close-modal {
             float: right;
             font-size: 24px;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: #1a4d2e;
         }
 
         /* Responsive */
@@ -600,12 +807,20 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-title {
+                text-align: center;
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
     <div class="container">
         <div class="header-inner">
             <div class="logo-area">
@@ -639,10 +854,10 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section with Video Background -->
+        <!-- Hero Section with Video Background - Mobile uses 2.mp4 -->
         <div class="hero-section animate-zoom" id="heroSection">
             <video class="hero-video" id="heroVideo" autoplay loop muted playsinline webkit-playsinline>
-                <source src="https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/11.mp4" type="video/mp4">
+                <source src="" id="videoSource" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-overlay">
@@ -811,23 +1026,31 @@
 </div>
 
 <script>
-    // VIDEO BACKGROUND - Mobile autoplay fix
+    // ========== VIDEO: Desktop uses 11.mp4, Mobile uses 2.mp4 ==========
     const video = document.getElementById('heroVideo');
+    const videoSource = document.getElementById('videoSource');
     
-    // Ensure video plays on mobile
-    video.addEventListener('loadedmetadata', function() {
+    function setVideoSource() {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            videoSource.src = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/2.mp4";
+        } else {
+            videoSource.src = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/main/11.mp4";
+        }
+        video.load();
+        
         video.play().catch(function(error) {
             console.log("Video autoplay failed:", error);
-            // Fallback: show image if video doesn't play
             const heroSection = document.getElementById('heroSection');
             heroSection.style.backgroundImage = "url('https://images.pexels.com/photos/1671324/pexels-photo-1671324.jpeg?w=1600&h=600&fit=crop')";
             heroSection.style.backgroundSize = "cover";
             heroSection.style.backgroundPosition = "center";
             video.style.display = "none";
         });
-    });
+    }
     
-    video.load();
+    setVideoSource();
+    window.addEventListener('resize', setVideoSource);
     
     // Force play on user interaction (helps with mobile)
     document.body.addEventListener('touchstart', function() {
@@ -836,7 +1059,7 @@
         }
     }, { once: true });
 
-    // GALLERY - Organized with your 5 images in order
+    // ========== GALLERY - Your 5 images in order ==========
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
@@ -847,10 +1070,12 @@
 
     const galleryGrid = document.getElementById('galleryGrid');
     
-    galleryItems.forEach(item => {
+    galleryItems.forEach((item, index) => {
         const imgDiv = document.createElement('div');
         imgDiv.className = 'gallery-item';
-        // Try to load the actual image, if fails use fallback
+        imgDiv.style.animation = `fadeInUp ${0.3 + index * 0.1}s ease forwards`;
+        imgDiv.style.opacity = '0';
+        
         const img = new Image();
         img.onload = function() {
             imgDiv.style.backgroundImage = `url('${item.url}')`;
@@ -862,7 +1087,6 @@
         imgDiv.style.backgroundSize = 'cover';
         imgDiv.style.backgroundPosition = 'center';
         
-        // Add caption
         const caption = document.createElement('div');
         caption.className = 'gallery-caption';
         caption.innerHTML = `<i class="fas fa-camera"></i> ${item.name}`;
@@ -872,7 +1096,7 @@
         galleryGrid.appendChild(imgDiv);
     });
 
-    // SCROLL ANIMATIONS
+    // ========== SCROLL ANIMATIONS ==========
     const animatedElements = [
         { element: document.getElementById('propertyCard'), delay: 0 },
         { element: document.getElementById('landColumn'), delay: 0 },
@@ -884,12 +1108,11 @@
 
     function checkScroll() {
         animatedElements.forEach(item => {
-            if (item.element && !item.element.classList.contains('animate-fadeUp') && 
-                !item.element.classList.contains('animate-fadeLeft') &&
-                !item.element.classList.contains('animate-fadeRight')) {
+            if (item.element && !item.element.classList.contains('animated')) {
                 const rect = item.element.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 if (rect.top < windowHeight - 100) {
+                    item.element.classList.add('animated');
                     if (item.element.classList.contains('green-bg') || item.element.classList.contains('gallery-section')) {
                         item.element.style.animation = 'fadeInUp 0.8s ease forwards';
                         item.element.style.opacity = '1';
@@ -911,13 +1134,22 @@
     window.addEventListener('scroll', checkScroll);
     window.addEventListener('load', () => {
         setTimeout(checkScroll, 200);
-        // Set initial opacity for animated elements
         document.getElementById('propertyCard').style.opacity = '0';
         document.getElementById('investSection').style.opacity = '0';
         document.getElementById('gallerySection').style.opacity = '0';
     });
 
-    // Translations
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('siteHeader');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ========== TRANSLATIONS ==========
     const translations = {
         en: {
             tagline: "Canita Reserve · Panamá", navHome: "Home", navDevelopments: "Developments", navContact: "Contact us", inquiryBtn: "Inquire",
