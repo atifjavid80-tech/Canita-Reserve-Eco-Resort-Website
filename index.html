@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ========== ALL CSS SAME AS BEFORE ========== */
         * {
             margin: 0;
             padding: 0;
@@ -144,7 +143,7 @@
         .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 
-        /* Header - Mobile optimized */
+        /* Header - Mobile optimized (Previous Working Style) */
         .site-header {
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -327,7 +326,7 @@
             .logo-area { gap: 4px; }
         }
 
-        /* Hero Section */
+        /* Hero Section - Adjusted for better video visibility */
         .hero-section {
             position: relative;
             margin: 5px 0 48px 0;
@@ -709,60 +708,6 @@
         .render-nav span { font-size: 50px; color: white; cursor: pointer; background: rgba(0,0,0,0.5); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .render-nav span:hover { background: #1a4d2e; transform: scale(1.1); }
 
-        /* PDF Modal */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            padding: 20px;
-        }
-        .pdf-modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 8px;
-            width: 95%;
-            max-width: 1200px;
-            height: 90vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .pdf-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #1a4d2e, #2d8c5a);
-            color: white;
-            border-radius: 8px 8px 0 0;
-            flex-shrink: 0;
-        }
-        .pdf-modal-title {
-            font-size: 1.3rem;
-            margin: 0;
-        }
-        .close-pdf-modal {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .close-pdf-modal:hover { color: #ffd700; }
-        .pdf-viewer-container {
-            width: 100%;
-            height: calc(100% - 60px);
-            border: none;
-            flex-grow: 1;
-        }
-
         /* Footer */
         footer {
             background: linear-gradient(135deg, #121f18, #0e1913);
@@ -893,7 +838,7 @@
                     </div>
                 </div>
                 <button class="brochure-btn" id="viewBrochureBtn">
-                    <i class="fas fa-file-pdf"></i> <span id="brochureBtnText">View Brochure</span>
+                    <i class="fas fa-file-pdf"></i> View Brochure
                 </button>
             </div>
         </div>
@@ -999,14 +944,15 @@
                 <p><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
                 <div class="social-icons">
                     <a href="#" id="whatsappLink" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/sundropresortcanita?igsh=aWtqbnczM3M0eGJz" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://x.com/SunDropCanita" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/sundropresortcanita?igsh=aWtqbnczM3M0eGJz" target="_blank" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/SunDropCanita" target="_blank" id="twitterLink"><i class="fab fa-twitter"></i></a>
                     <a href="#" id="footerBrochureLink"><i class="fas fa-file-pdf"></i> <span style="font-size:0.7rem; margin-left:5px;">Brochure</span></a>
                 </div>
             </div>
             <div class="footer-section"><h4 data-translate="footerExplore">Explore</h4><p><a href="#" id="footerEco">EcoHomes</a></p><p><a href="#" id="footerGlamp">Glamping Stays</a></p><p><a href="#" id="footerInvest">Investment</a></p><p><a href="#" id="footerAgro">Agroforestry</a></p></div>
             <div class="footer-section"><h4 data-translate="footerLegal">Legal</h4><p><a href="#">Privacy Policy</a></p><p><a href="#">Terms of Service</a></p><p><a href="#">Cookie Policy</a></p><p><a href="#">EULA</a></p></div>
         </div>
+        <!-- Tagline moved above legal boilerplate -->
         <div class="footer-tagline">🌿 <span data-translate="footerTagline">"Our Rainforest, Your Paradise" — Regenerative luxury & forest preservation</span></div>
         <div class="legal-boilerplate">
             <p>© 2026 SunDrop Resort. All rights reserved.</p>
@@ -1022,76 +968,33 @@
 <div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm"><input type="text" id="nameInput" placeholder="Full Name" required><input type="email" id="emailInput" placeholder="Email Address" required><textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea><button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button></form><p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p></div></div>
 
 <script>
-    // =================== PDF URLS (English & Spanish) ===================
-    const pdfUrls = {
-        en: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf",
-        es: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve%20Spanish.pdf"
-    };
-    
-    // PDF Viewer URL Generator
-    function getPdfViewerUrl(lang) {
-        const pdfUrl = pdfUrls[lang] || pdfUrls.en;
-        return "https://docs.google.com/viewer?url=" + encodeURIComponent(pdfUrl) + "&embedded=true";
-    }
-    
-    // PDF Modal Functions
-    function openPDF(title, url) {
-        const modal = document.getElementById('pdfModal');
-        const modalTitle = document.getElementById('pdfModalTitle');
-        const iframe = document.getElementById('pdfViewer');
-        
-        modalTitle.textContent = title;
-        iframe.src = url;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closePDFModal() {
-        const modal = document.getElementById('pdfModal');
-        const iframe = document.getElementById('pdfViewer');
-        
-        modal.style.display = 'none';
-        iframe.src = '';
-        document.body.style.overflow = 'auto';
-    }
-    
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        const pdfModal = document.getElementById('pdfModal');
-        if (event.target == pdfModal) closePDFModal();
-    }
-    
-    // Escape key handler
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') closePDFModal();
-    });
-    
-    // Language-specific brochure opener
-    let currentLangForPDF = 'en';
-    
-    function openBrochure() {
-        const title = currentLangForPDF === 'en' ? 'SunDrop Canita Brochure' : 'Folleto SunDrop Canita';
-        const viewerUrl = getPdfViewerUrl(currentLangForPDF);
-        openPDF(title, viewerUrl);
-    }
-    
     // Twitter link
     document.getElementById('twitterLink').href = "https://x.com/SunDropCanita";
+    
+    // Instagram link
+    document.getElementById('instagramLink').href = "https://www.instagram.com/sundropresortcanita?igsh=aWtqbnczM3M0eGJz";
     
     // WhatsApp link with number +1 (385) 222-8100
     const whatsappNumber = "13852228100";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello%21%20I%27m%20interested%20in%20SunDrop%20Resort%20at%20Canita%20Reserve.%20Please%20share%20more%20information.`;
     document.getElementById('whatsappLink').href = whatsappLink;
     
-    // Brochure buttons
+    // PDF URL - Using Google Docs Viewer for proper inline viewing
+    const pdfRawUrl = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
+    const pdfViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(pdfRawUrl) + "&embedded=true";
+    
+    function openPDF() {
+        window.open(pdfViewerUrl, '_blank');
+    }
+    
     document.getElementById('viewBrochureBtn').addEventListener('click', (e) => {
         e.preventDefault();
-        openBrochure();
+        openPDF();
     });
     
     document.getElementById('footerBrochureLink').addEventListener('click', (e) => {
         e.preventDefault();
-        openBrochure();
+        openPDF();
     });
     
     document.getElementById('preSaleBadge').addEventListener('click', (e) => {
@@ -1174,7 +1077,7 @@
     }
     setVideoSource(); window.addEventListener('resize', setVideoSource);
 
-    // Gallery Items
+    // Gallery Items with CORRECTED NAMES
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita Reserve", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
@@ -1210,157 +1113,21 @@
     });
 
     const translations = {
-        en: { 
-            tagline: "Canita Reserve · Panamá", 
-            navHome: "Home", 
-            navDevelopments: "Developments", 
-            renderBtn: "Homes", 
-            navContact: "Contact us", 
-            inquiryBtn: "Inquire",
-            brochureText: "View Brochure",
-            title: "SunDrop Resort at Canita Reserve", 
-            propType: "PROPERTY TYPE", 
-            propTypeVal: "Fractional EcoHomes / Glamping Resort / Agrotourism", 
-            bedrooms: "BEDROOMS", 
-            bedroomsVal: "2-4 (EcoHomes) / 1 (Glamping)", 
-            area: "AREA", 
-            areaVal: "8 ha residential + 42 ha Forest preservation", 
-            year: "YEAR", 
-            yearVal: "Pre-launch 2026", 
-            price: "💰 From $160,000 USD 💰", 
-            desc1: "<strong>Regenerative by design</strong> — SunDrop Resort merges luxury eco-tourism with active rainforest preservation.", 
-            desc2: "🌱 <strong>Our Rainforest, Your Paradise:</strong> 55 EcoHomes, 75 indigenous-inspired glamping sites, community gardens, natural spring lakes, holistic spa, cooperative, farming and livestock production.", 
-            landTitle: "The Land", 
-            landDesc: "Easily accessible from the Pan-American Highway via Chepo, the 8-hectare residential property offers stunning views.", 
-            feature1: "8 hectares master-planned EcoVillage", 
-            feature2: "42 hectares active preservation", 
-            feature3: "3 natural spring-fed lakes", 
-            feature4: "100% off-grid solar + micro-hydro", 
-            villageTitle: "The EcoVillage & Resort", 
-            villageDesc: "The BLOC campus includes senior care, holistic spa, preschool, business center, social club, theater, restaurant, and market. Residents enjoy 21 farm-to-table meals/week.", 
-            village1: "55 EcoHomes + 60 rental apartments", 
-            village2: "75 luxury glamping sites", 
-            village3: "Agroforestry: cocoa, avocado, mango", 
-            village4: "Co-op farming & livestock", 
-            village5: "CoOp percentage of profits from Glamping, AirBnB and AgroForestry operations", 
-            investTitle: "Investment Opportunity", 
-            investDesc: "Projected revenue from $3.86M (Year 1) to $16.2M (Year 5).", 
-            investCitz: "<strong>Pathway to Panama Citizenship:</strong> Ownership includes legal services and residency-to-citizenship track within 5 years.", 
-            energyTitle: "Off-Grid Resilience", 
-            energyDesc: "Solar array + micro-hydro + battery storage · Greywater recycling · Electric ATVs & community SUVs.", 
-            galleryTitle: "Explore Canita Reserve", 
-            attractionsTitle: "Gateway to Eastern Panama", 
-            lakeTitle: "Lake Bayano & Caves", 
-            lakeDesc: "Boat trips, kayaking, limestone caves, tarpon fishing.", 
-            riverTitle: "Mamoni River", 
-            riverDesc: "Class III-IV whitewater rafting, 30 minutes away.", 
-            cocoboloTitle: "Cocobolo Nature Reserve", 
-            cocoboloDesc: "Over 300 bird species, primary forest hiking, stargazing.", 
-            cityTitle: "Panama City & Casco Antiguo", 
-            cityDesc: "UNESCO sites, modern amenities, airport 1.5 hours away.", 
-            discoveryBtn: "Book Discovery Stay", 
-            investBtnText: "Request Investment Deck", 
-            footerAddress: "Canita Reserve, Chepo District<br>Panamá, Republic of Panamá", 
-            footerExplore: "Explore", 
-            footerLegal: "Legal", 
-            footerEco: "EcoHomes", 
-            footerGlamp: "Glamping Stays", 
-            footerInvest: "Investment", 
-            footerAgro: "Agroforestry", 
-            footerTagline: '"Our Rainforest, Your Paradise" — Regenerative luxury & forest preservation', 
-            copyrightText: "Live Naturally. Live with Purpose.", 
-            modalTitle: "Inquire about SunDrop Canita", 
-            sendBtn: "Send Request", 
-            responseText: "We'll respond within 24h." 
-        },
-        es: { 
-            tagline: "Reserva Canita · Panamá", 
-            navHome: "Inicio", 
-            navDevelopments: "Desarrollos", 
-            renderBtn: "Homes", 
-            navContact: "Contáctenos", 
-            inquiryBtn: "Consultar",
-            brochureText: "Ver Folleto",
-            title: "SunDrop Resort en Reserva Canita", 
-            propType: "TIPO DE PROPIEDAD", 
-            propTypeVal: "EcoHomes fraccionales / Resort Glamping / Agroturismo", 
-            bedrooms: "HABITACIONES", 
-            bedroomsVal: "2-4 (EcoHomes) / 1 (Glamping)", 
-            area: "ÁREA", 
-            areaVal: "8 ha residenciales + 42 ha preservación de bosque", 
-            year: "AÑO", 
-            yearVal: "Pre-lanzamiento 2026", 
-            price: "💰 Desde $160,000 USD 💰", 
-            desc1: "<strong>Regenerativo por diseño</strong> — SunDrop Resort combina ecoturismo de lujo con preservación activa de la selva.", 
-            desc2: "🌱 <strong>Nuestra Selva, Tu Paraíso:</strong> 55 EcoHomes, 75 sitios glamping, jardines comunitarios, lagunas, spa holístico, cooperativa, agricultura y producción ganadera.", 
-            landTitle: "El Terreno", 
-            landDesc: "Fácil acceso desde la Carretera Panamericana vía Chepo, vista espectacular de la selva.", 
-            feature1: "8 hectáreas EcoVillage planificado", 
-            feature2: "42 hectáreas preservación activa", 
-            feature3: "3 lagunas de manantial", 
-            feature4: "100% fuera de red solar + microhidro", 
-            villageTitle: "El EcoVillage & Resort", 
-            villageDesc: "El campus BLOC incluye cuidado de ancianos, spa holístico, preescolar, centro de negocios, club social, cine, restaurante y mercado. Residentes disfrutan 21 comidas granja-mesa/semana.", 
-            village1: "55 EcoHomes + 60 apartamentos", 
-            village2: "75 sitios glamping de lujo", 
-            village3: "Agroforestería: cacao, aguacate, mango", 
-            village4: "Agricultura cooperativa y ganadería", 
-            village5: "CoOp porcentaje de ganancias de Glamping, AirBnB y AgroForestería", 
-            investTitle: "Oportunidad de Inversión", 
-            investDesc: "Ingresos proyectados de $3.86M (Año 1) a $16.2M (Año 5).", 
-            investCitz: "<strong>Camino a la Ciudadanía de Panamá:</strong> Inversión incluye servicios legales.", 
-            energyTitle: "Resiliencia Fuera de la Red", 
-            energyDesc: "Matriz solar + microhidro + baterías · Reciclaje de aguas grises · ATV eléctricos.", 
-            galleryTitle: "Explora Reserva Canita", 
-            attractionsTitle: "Puerta al Este de Panamá", 
-            lakeTitle: "Lago Bayano y Cuevas", 
-            lakeDesc: "Paseos en bote, kayak, cuevas, pesca de sábalo.", 
-            riverTitle: "Río Mamoni", 
-            riverDesc: "Rafting Clase III-IV, a 30 minutos.", 
-            cocoboloTitle: "Reserva Natural Cocobolo", 
-            cocoboloDesc: "Más de 300 especies de aves, senderismo, observación de estrellas.", 
-            cityTitle: "Ciudad de Panamá y Casco Antiguo", 
-            cityDesc: "Sitios UNESCO, aeropuerto a 1.5 horas.", 
-            discoveryBtn: "Reservar Estancia", 
-            investBtnText: "Solicitar Información", 
-            footerAddress: "Reserva Canita, Distrito Chepo<br>Panamá, República de Panamá", 
-            footerExplore: "Explorar", 
-            footerLegal: "Legal", 
-            footerEco: "EcoHomes", 
-            footerGlamp: "Glamping", 
-            footerInvest: "Inversión", 
-            footerAgro: "Agroforestería", 
-            footerTagline: '"Nuestra Selva, Tu Paraíso" — Lujo regenerativo & preservación del bosque', 
-            copyrightText: "Vive Naturalmente. Vive con Propósito.", 
-            modalTitle: "Consultar sobre SunDrop Canita", 
-            sendBtn: "Enviar Solicitud", 
-            responseText: "Responderemos en 24h." 
-        }
+        en: { tagline: "Canita Reserve · Panamá", navHome: "Home", navDevelopments: "Developments", renderBtn: "Homes", navContact: "Contact us", inquiryBtn: "Inquire", title: "SunDrop Resort at Canita Reserve", propType: "PROPERTY TYPE", propTypeVal: "Fractional EcoHomes / Glamping Resort / Agrotourism", bedrooms: "BEDROOMS", bedroomsVal: "2-4 (EcoHomes) / 1 (Glamping)", area: "AREA", areaVal: "8 ha residential + 42 ha Forest preservation", year: "YEAR", yearVal: "Pre-launch 2026", price: "💰 From $160,000 USD 💰", desc1: "<strong>Regenerative by design</strong> — SunDrop Resort merges luxury eco-tourism with active rainforest preservation.", desc2: "🌱 <strong>Our Rainforest, Your Paradise:</strong> 55 EcoHomes, 75 indigenous-inspired glamping sites, community gardens, natural spring lakes, holistic spa, cooperative, farming and livestock production.", landTitle: "The Land", landDesc: "Easily accessible from the Pan-American Highway via Chepo, the 8-hectare residential property offers stunning views.", feature1: "8 hectares master-planned EcoVillage", feature2: "42 hectares active preservation", feature3: "3 natural spring-fed lakes", feature4: "100% off-grid solar + micro-hydro", villageTitle: "The EcoVillage & Resort", villageDesc: "The BLOC campus includes senior care, holistic spa, preschool, business center, social club, theater, restaurant, and market. Residents enjoy 21 farm-to-table meals/week.", village1: "55 EcoHomes + 60 rental apartments", village2: "75 luxury glamping sites", village3: "Agroforestry: cocoa, avocado, mango", village4: "Co-op farming & livestock", village5: "CoOp percentage of profits from Glamping, AirBnB and AgroForestry operations", investTitle: "Investment Opportunity", investDesc: "Projected revenue from $3.86M (Year 1) to $16.2M (Year 5).", investCitz: "<strong>Pathway to Panama Citizenship:</strong> Ownership includes legal services and residency-to-citizenship track within 5 years.", energyTitle: "Off-Grid Resilience", energyDesc: "Solar array + micro-hydro + battery storage · Greywater recycling · Electric ATVs & community SUVs.", galleryTitle: "Explore Canita Reserve", attractionsTitle: "Gateway to Eastern Panama", lakeTitle: "Lake Bayano & Caves", lakeDesc: "Boat trips, kayaking, limestone caves, tarpon fishing.", riverTitle: "Mamoni River", riverDesc: "Class III-IV whitewater rafting, 30 minutes away.", cocoboloTitle: "Cocobolo Nature Reserve", cocoboloDesc: "Over 300 bird species, primary forest hiking, stargazing.", cityTitle: "Panama City & Casco Antiguo", cityDesc: "UNESCO sites, modern amenities, airport 1.5 hours away.", discoveryBtn: "Book Discovery Stay", investBtnText: "Request Investment Deck", footerAddress: "Canita Reserve, Chepo District<br>Panamá, Republic of Panamá", footerExplore: "Explore", footerLegal: "Legal", footerEco: "EcoHomes", footerGlamp: "Glamping Stays", footerInvest: "Investment", footerAgro: "Agroforestry", footerTagline: '"Our Rainforest, Your Paradise" — Regenerative luxury & forest preservation', copyrightText: "Live Naturally. Live with Purpose.", modalTitle: "Inquire about SunDrop Canita", sendBtn: "Send Request", responseText: "We'll respond within 24h." },
+        es: { tagline: "Reserva Canita · Panamá", navHome: "Inicio", navDevelopments: "Desarrollos", renderBtn: "Homes", navContact: "Contáctenos", inquiryBtn: "Consultar", title: "SunDrop Resort en Reserva Canita", propType: "TIPO DE PROPIEDAD", propTypeVal: "EcoHomes fraccionales / Resort Glamping / Agroturismo", bedrooms: "HABITACIONES", bedroomsVal: "2-4 (EcoHomes) / 1 (Glamping)", area: "ÁREA", areaVal: "8 ha residenciales + 42 ha preservación de bosque", year: "AÑO", yearVal: "Pre-lanzamiento 2026", price: "💰 Desde $160,000 USD 💰", desc1: "<strong>Regenerativo por diseño</strong> — SunDrop Resort combina ecoturismo de lujo con preservación activa de la selva.", desc2: "🌱 <strong>Nuestra Selva, Tu Paraíso:</strong> 55 EcoHomes, 75 sitios glamping, jardines comunitarios, lagunas, spa holístico, cooperativa, agricultura y producción ganadera.", landTitle: "El Terreno", landDesc: "Fácil acceso desde la Carretera Panamericana vía Chepo, vista espectacular de la selva.", feature1: "8 hectáreas EcoVillage planificado", feature2: "42 hectáreas preservación activa", feature3: "3 lagunas de manantial", feature4: "100% fuera de red solar + microhidro", villageTitle: "El EcoVillage & Resort", villageDesc: "El campus BLOC incluye cuidado de ancianos, spa holístico, preescolar, centro de negocios, club social, cine, restaurante y mercado. Residentes disfrutan 21 comidas granja-mesa/semana.", village1: "55 EcoHomes + 60 apartamentos", village2: "75 sitios glamping de lujo", village3: "Agroforestería: cacao, aguacate, mango", village4: "Agricultura cooperativa y ganadería", village5: "CoOp porcentaje de ganancias de Glamping, AirBnB y AgroForestería", investTitle: "Oportunidad de Inversión", investDesc: "Ingresos proyectados de $3.86M (Año 1) a $16.2M (Año 5).", investCitz: "<strong>Camino a la Ciudadanía de Panamá:</strong> Inversión incluye servicios legales.", energyTitle: "Resiliencia Fuera de la Red", energyDesc: "Matriz solar + microhidro + baterías · Reciclaje de aguas grises · ATV eléctricos.", galleryTitle: "Explora Reserva Canita", attractionsTitle: "Puerta al Este de Panamá", lakeTitle: "Lago Bayano y Cuevas", lakeDesc: "Paseos en bote, kayak, cuevas, pesca de sábalo.", riverTitle: "Río Mamoni", riverDesc: "Rafting Clase III-IV, a 30 minutos.", cocoboloTitle: "Reserva Natural Cocobolo", cocoboloDesc: "Más de 300 especies de aves, senderismo, observación de estrellas.", cityTitle: "Ciudad de Panamá y Casco Antiguo", cityDesc: "Sitios UNESCO, aeropuerto a 1.5 horas.", discoveryBtn: "Reservar Estancia", investBtnText: "Solicitar Información", footerAddress: "Reserva Canita, Distrito Chepo<br>Panamá, República de Panamá", footerExplore: "Explorar", footerLegal: "Legal", footerEco: "EcoHomes", footerGlamp: "Glamping", footerInvest: "Inversión", footerAgro: "Agroforestería", footerTagline: '"Nuestra Selva, Tu Paraíso" — Lujo regenerativo & preservación del bosque', copyrightText: "Vive Naturalmente. Vive con Propósito.", modalTitle: "Consultar sobre SunDrop Canita", sendBtn: "Enviar Solicitud", responseText: "Responderemos en 24h." }
     };
     
     let currentLang = 'en';
     function updateLanguage(lang) {
         currentLang = lang;
-        currentLangForPDF = lang; // Update PDF language
         document.getElementById('currentLang').innerText = lang.toUpperCase();
         const t = translations[lang];
-        
-        // Update all translatable elements
-        document.querySelectorAll('[data-translate]').forEach(el => { 
-            const key = el.getAttribute('data-translate'); 
-            if (t[key]) el.innerHTML = t[key]; 
-        });
-        
-        // Update brochure button text
-        document.getElementById('brochureBtnText').innerHTML = t.brochureText;
-        
-        // Update hero content
+        document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (t[key]) el.innerHTML = t[key]; });
         document.getElementById('heroTitle').innerHTML = lang === 'en' ? 'Live Naturally. <br>Live with Purpose.' : 'Vive Naturalmente. <br>Vive con Propósito.';
         document.getElementById('heroTagline').innerHTML = lang === 'en' ? '🌿 Our Rainforest, Your Paradise 🌿' : '🌿 Nuestra Selva, Tu Paraíso 🌿';
         document.getElementById('heroSubtitle').innerHTML = lang === 'en' ? 'SunDrop Resort at Canita Reserve, Panama' : 'SunDrop Resort en Reserva Canita, Panamá';
         document.getElementById('heroDescription').innerHTML = lang === 'en' ? 'Welcome to SunDrop Resort, an off-grid, self-sustainable community nestled in the lush Canita Reserve of Panama. Here, life flows at the pace of nature — alongside the river, among fruit trees and forest trails.' : 'Bienvenido a SunDrop Resort, una comunidad autosostenible fuera de la red ubicada en la exuberante Reserva Canita de Panamá. Aquí, la vida fluye al ritmo de la naturaleza, junto al río, entre árboles frutales y senderos forestales.';
         
-        // Update pre-sale section
         const preSaleSection = document.getElementById('preSaleSection');
         if (preSaleSection) {
             preSaleSection.querySelector('h2').innerHTML = lang === 'en' ? 'Live Naturally. Live with Purpose.' : 'Vive Naturalmente. Vive con Propósito.';
@@ -1373,14 +1140,16 @@
     const langSelector = document.getElementById('langSelector');
     langSelector.addEventListener('click', (e) => { e.stopPropagation(); langSelector.classList.toggle('active'); });
     
+    // Fix: Close dropdown when language is selected
     document.querySelectorAll('[data-lang]').forEach(btn => { 
         btn.addEventListener('click', (e) => { 
             e.preventDefault(); 
             updateLanguage(btn.getAttribute('data-lang')); 
-            langSelector.classList.remove('active');
+            langSelector.classList.remove('active'); // Close dropdown after selection
         }); 
     });
     
+    // Close dropdown when clicking outside
     document.addEventListener('click', (e) => { 
         if (!langSelector.contains(e.target)) {
             langSelector.classList.remove('active');
@@ -1388,16 +1157,11 @@
     });
 
     const modalElem = document.getElementById('inquiryModal');
-    const inquiryBtns = ['inquiryBtn', 'investBtnMainAbove', 'discoveryBtn', 'footerEco', 'footerGlamp', 'footerInvest', 'footerAgro'];
+    const inquiryBtns = ['inquiryBtn', 'investBtnMain', 'investBtnMainAbove', 'discoveryBtn', 'footerEco', 'footerGlamp', 'footerInvest', 'footerAgro'];
     inquiryBtns.forEach(id => { const btn = document.getElementById(id); if(btn) btn.addEventListener('click', (e) => { e.preventDefault(); modalElem.style.display = 'flex'; }); });
     document.getElementById('closeModalBtn').addEventListener('click', () => modalElem.style.display = 'none');
     window.addEventListener('click', (e) => { if(e.target === modalElem) modalElem.style.display = 'none'; });
-    document.getElementById('inquiryForm').addEventListener('submit', (e) => { 
-        e.preventDefault(); 
-        alert(currentLang === 'en' ? 'Thank you! A SunDrop Canita specialist will contact you within 24 hours.' : '¡Gracias! Un especialista de SunDrop Canita lo contactará en 24 horas.'); 
-        modalElem.style.display = 'none'; 
-        e.target.reset(); 
-    });
+    document.getElementById('inquiryForm').addEventListener('submit', (e) => { e.preventDefault(); alert(currentLang === 'en' ? 'Thank you! A SunDrop Canita specialist will contact you within 24 hours.' : '¡Gracias! Un especialista de SunDrop Canita lo contactará en 24 horas.'); modalElem.style.display = 'none'; e.target.reset(); });
     
     document.querySelectorAll('.section-transition, .stagger-children').forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); });
 </script>
