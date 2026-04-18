@@ -79,7 +79,7 @@
             transform: translateY(0);
         }
 
-        /* Header */
+        /* Header - Fixed for mobile */
         .site-header {
             padding: 20px 0;
             border-bottom: 1px solid #e8ece4;
@@ -99,8 +99,11 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
+        /* Mobile header padding fix */
         body { padding-top: 85px; }
-        @media (max-width: 768px) { body { padding-top: 110px; } }
+        @media (max-width: 768px) { 
+            body { padding-top: 95px; } 
+        }
 
         .header-inner {
             display: flex;
@@ -222,17 +225,18 @@
 
         @media (max-width: 768px) {
             .header-inner { flex-direction: column; align-items: center; }
-            .nav-menu { justify-content: center; gap: 12px; }
-            .nav-menu a { font-size: 0.75rem; }
-            .lang-selector { padding: 5px 10px; font-size: 0.7rem; }
-            .inquiry-btn { padding: 5px 14px; font-size: 0.75rem; }
-            .logo-img { height: 45px; }
+            .nav-menu { justify-content: center; gap: 10px; }
+            .nav-menu a { font-size: 0.7rem; }
+            .lang-selector { padding: 5px 10px; font-size: 0.65rem; }
+            .inquiry-btn { padding: 5px 12px; font-size: 0.7rem; }
+            .logo-img { height: 40px; }
+            .tagline-header { font-size: 0.55rem; }
         }
 
-        /* Hero */
+        /* Hero Section - Fixed positioning */
         .hero-section {
             position: relative;
-            margin: 32px 0 48px;
+            margin: 0 0 48px 0;
             border-radius: 28px;
             overflow: hidden;
             min-height: 550px;
@@ -272,7 +276,16 @@
         }
         .hero-overlay h1 { color: white; font-size: 4rem; font-weight: 800; max-width: 70%; line-height: 1.2; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero-tagline { color: rgba(255,255,255,0.95); font-size: 1.3rem; font-weight: 500; }
-        @media (max-width: 768px) { .hero-overlay h1 { font-size: 2rem; max-width: 100%; } .hero-overlay { padding: 40px 24px; } .hero-section { min-height: 400px; } }
+        
+        @media (max-width: 768px) { 
+            .hero-section { 
+                min-height: 400px; 
+                margin-top: 0;
+            }
+            .hero-overlay { padding: 40px 24px; }
+            .hero-overlay h1 { font-size: 1.8rem; max-width: 100%; }
+            .hero-tagline { font-size: 1rem; }
+        }
 
         /* Cards */
         .property-card {
@@ -350,7 +363,7 @@
         .button-group { text-align: center; margin-top: 32px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         @media (max-width: 480px) { .button-group { flex-direction: column; align-items: center; } .btn-primary, .btn-outline { width: 100%; max-width: 250px; text-align: center; } }
 
-        /* Gallery - 3x3 Grid */
+        /* Gallery - 3x2 Grid (6 images) */
         .gallery-section { margin: 48px 0; }
         .gallery-grid { 
             display: grid; 
@@ -686,17 +699,14 @@
     }
     setVideoSource(); window.addEventListener('resize', setVideoSource);
 
-    // Gallery - 3x3 Grid (9 images)
+    // Gallery - ONLY 6 images (3x2 grid)
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita Reserve", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
         { name: "Organic Farming", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Organic%20Farming1.jpg", fallback: "https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg" },
         { name: "Rainforest", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Rainforest%20.jpeg", fallback: "https://images.pexels.com/photos/1545293/pexels-photo-1545293.jpeg" },
         { name: "Monkeys & Birds", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Monkeys%20and%20Birds..jpg", fallback: "https://images.pexels.com/photos/47547/squirrel-monkey-amazon-monkey-animal-47547.jpeg" },
-        { name: "Canita View", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Screenshot%202026-04-18%20161808.png", fallback: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg" },
-        { name: "Wildlife", url: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg", fallback: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg" },
-        { name: "Sunset at Canita", url: "https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg", fallback: "https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg" },
-        { name: "Eco Architecture", url: "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg", fallback: "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg" }
+        { name: "Canita View", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Screenshot%202026-04-18%20161808.png", fallback: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg" }
     ];
     
     const galleryGrid = document.getElementById('galleryGrid');
