@@ -143,7 +143,7 @@
         .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 
-        /* Header - Mobile optimized - all buttons in one line */
+        /* Header - Mobile optimized */
         .site-header {
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -165,7 +165,7 @@
         }
         body { padding-top: 68px; }
         @media (max-width: 768px) { 
-            body { padding-top: 85px; }
+            body { padding-top: 78px; }
             .site-header { padding: 8px 0; }
             .site-header.scrolled { padding: 4px 0; }
         }
@@ -263,6 +263,7 @@
             color: #2a4236;
             text-decoration: none;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
         .lang-dropdown a:hover { background: #f2f5ef; padding-left: 20px; }
         
@@ -301,34 +302,34 @@
             .nav-menu { 
                 flex: 2;
                 justify-content: flex-end;
-                gap: 8px;
+                gap: 6px;
             }
             .nav-menu a { 
-                font-size: 0.6rem; 
+                font-size: 0.55rem; 
             }
             .lang-selector { 
                 padding: 3px 8px; 
                 font-size: 0.55rem;
-                gap: 4px;
+                gap: 3px;
             }
             .inquiry-btn { 
-                padding: 4px 10px; 
-                font-size: 0.6rem; 
+                padding: 3px 8px; 
+                font-size: 0.55rem; 
             }
             .logo-img { 
-                height: 30px; 
+                height: 28px; 
             }
             .tagline-header { 
-                font-size: 0.45rem;
-                padding-left: 5px;
+                font-size: 0.4rem;
+                padding-left: 4px;
             }
-            .logo-area { gap: 5px; }
+            .logo-area { gap: 4px; }
         }
 
         /* Hero Section - Adjusted for better video visibility */
         .hero-section {
             position: relative;
-            margin: 15px 0 48px 0;
+            margin: 5px 0 48px 0;
             border-radius: 28px;
             overflow: hidden;
             min-height: 520px;
@@ -412,36 +413,36 @@
         
         @media (max-width: 768px) { 
             .hero-section { 
-                min-height: 460px; 
-                margin-top: 20px;
+                min-height: 420px; 
+                margin-top: 5px;
                 margin-bottom: 35px;
             }
             .hero-overlay { 
-                padding: 25px 18px; 
+                padding: 20px 16px; 
                 flex-direction: column; 
                 align-items: flex-start; 
             }
             .hero-text { 
                 max-width: 100%; 
-                margin-bottom: 20px; 
+                margin-bottom: 15px; 
             }
             .hero-overlay h1 { 
-                font-size: 1.5rem; 
+                font-size: 1.4rem; 
             }
             .hero-tagline { 
-                font-size: 0.8rem; 
-                margin-bottom: 12px;
-            }
-            .hero-subtitle { 
-                font-size: 0.8rem; 
+                font-size: 0.7rem; 
                 margin-bottom: 10px;
             }
-            .hero-description { 
+            .hero-subtitle { 
                 font-size: 0.7rem; 
+                margin-bottom: 8px;
+            }
+            .hero-description { 
+                font-size: 0.65rem; 
             }
             .brochure-btn { 
-                padding: 6px 14px; 
-                font-size: 0.7rem; 
+                padding: 5px 12px; 
+                font-size: 0.65rem; 
                 margin-bottom: 0;
             }
         }
@@ -675,7 +676,7 @@
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 16px;
             }
-            .gallery-item { height: 220px; }
+            .gallery-item { height: 200px; }
         }
         @media (max-width: 480px) { 
             .gallery-grid { 
@@ -1135,8 +1136,22 @@
     
     const langSelector = document.getElementById('langSelector');
     langSelector.addEventListener('click', (e) => { e.stopPropagation(); langSelector.classList.toggle('active'); });
-    document.querySelectorAll('[data-lang]').forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); updateLanguage(btn.getAttribute('data-lang')); langSelector.classList.remove('active'); }); });
-    document.addEventListener('click', () => langSelector.classList.remove('active'));
+    
+    // Fix: Close dropdown when language is selected
+    document.querySelectorAll('[data-lang]').forEach(btn => { 
+        btn.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            updateLanguage(btn.getAttribute('data-lang')); 
+            langSelector.classList.remove('active'); // Close dropdown after selection
+        }); 
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => { 
+        if (!langSelector.contains(e.target)) {
+            langSelector.classList.remove('active');
+        }
+    });
 
     const modalElem = document.getElementById('inquiryModal');
     const inquiryBtns = ['inquiryBtn', 'investBtnMain', 'investBtnMainAbove', 'discoveryBtn', 'footerEco', 'footerGlamp', 'footerInvest', 'footerAgro'];
