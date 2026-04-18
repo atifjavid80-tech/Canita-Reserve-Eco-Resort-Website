@@ -29,7 +29,7 @@
             padding: 0 32px;
         }
 
-        /* ========== ANIMATIONS ========== */
+        /* ========== ENHANCED ANIMATIONS ========== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
@@ -688,6 +688,60 @@
             .two-col-grid { grid-template-columns: 1fr; gap: 30px; }
         }
 
+        /* PDF Modal */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+        }
+        .pdf-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 8px;
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #1a4d2e, #2d8c5a);
+            color: white;
+            border-radius: 8px 8px 0 0;
+            flex-shrink: 0;
+        }
+        .pdf-modal-title {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        .close-pdf-modal {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .close-pdf-modal:hover { color: #ffd700; }
+        .pdf-viewer-container {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            flex-grow: 1;
+        }
+
         /* Render Modal */
         .render-modal {
             display: none;
@@ -787,6 +841,17 @@
     </style>
 </head>
 <body>
+
+<!-- PDF Modal -->
+<div id="pdfModal" class="pdf-modal">
+    <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+            <h3 class="pdf-modal-title" id="pdfModalTitle">Brochure Viewer</h3>
+            <button class="close-pdf-modal" onclick="closePDFModal()">&times;</button>
+        </div>
+        <iframe id="pdfViewer" class="pdf-viewer-container" src="" title="PDF Viewer"></iframe>
+    </div>
+</div>
 
 <header class="site-header" id="siteHeader">
     <div class="container">
@@ -942,7 +1007,7 @@
                 <div class="footer-logo-text">SunDrop RESORT</div>
                 <div class="footer-sub">CANITA RESERVE | CHEPO, PANAMA</div>
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
-                <p><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
+                <p><i class="fas fa-envelope"></i> info@sundropresortcanita.com</p>
                 <div class="social-icons">
                     <a href="#" id="whatsappLink" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com/sundropresortcanita?igsh=aWtqbnczM3M0eGJz" target="_blank" id="instagramLink"><i class="fab fa-instagram"></i></a>
@@ -953,7 +1018,6 @@
             <div class="footer-section"><h4 data-translate="footerExplore">Explore</h4><p><a href="#" id="footerEco">EcoHomes</a></p><p><a href="#" id="footerGlamp">Glamping Stays</a></p><p><a href="#" id="footerInvest">Investment</a></p><p><a href="#" id="footerAgro">Agroforestry</a></p></div>
             <div class="footer-section"><h4 data-translate="footerLegal">Legal</h4><p><a href="#">Privacy Policy</a></p><p><a href="#">Terms of Service</a></p><p><a href="#">Cookie Policy</a></p><p><a href="#">EULA</a></p></div>
         </div>
-        <!-- Tagline moved above legal boilerplate -->
         <div class="footer-tagline">🌿 <span data-translate="footerTagline">"Our Rainforest, Your Paradise" — Regenerative luxury & forest preservation</span></div>
         <div class="legal-boilerplate">
             <p>© 2026 SunDrop Resort. All rights reserved.</p>
@@ -966,28 +1030,27 @@
 </footer>
 
 <div id="renderModal" class="render-modal"><span class="close-render" id="closeRenderBtn">&times;</span><div class="render-nav"><span id="prevRender"><i class="fas fa-chevron-left"></i></span><span id="nextRender"><i class="fas fa-chevron-right"></i></span></div><div class="render-modal-content"><img id="renderImage" src="" alt="Render"></div></div>
-<div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm"><input type="text" id="nameInput" placeholder="Full Name" required><input type="email" id="emailInput" placeholder="Email Address" required><textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea><button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button></form><p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p></div></div>
+<div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm" action="https://formsubmit.co/info@sundropresortcanita.com" method="POST">
+    <input type="text" id="nameInput" name="name" placeholder="Full Name" required>
+    <input type="email" id="emailInput" name="email" placeholder="Email Address" required>
+    <textarea rows="3" id="msgInput" name="message" placeholder="Your message... (EcoHome, glamping or investment)"></textarea>
+    <input type="hidden" name="_subject" value="New Lead from SunDrop Resort Website!">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://sundropresortscanita.com/thank-you.html">
+    <button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button>
+</form>
+<p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p>
+</div></div>
 
 <script>
-    // =================== PDF LANGUAGE SUPPORT ===================
-    // English PDF URL
-    const pdfUrlEn = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
-    // Spanish PDF URL
-    const pdfUrlEs = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve%20Spanish.pdf";
-    
-    // PDF Viewer URL Generator
-    function getPdfViewerUrl(url) {
-        return "https://docs.google.com/viewer?url=" + encodeURIComponent(url) + "&embedded=true";
-    }
-    
-    // PDF Modal Functions
+    // =================== PDF MODAL FUNCTIONS ===================
     function openPDF(title, url) {
         const modal = document.getElementById('pdfModal');
         const modalTitle = document.getElementById('pdfModalTitle');
         const iframe = document.getElementById('pdfViewer');
         
         modalTitle.textContent = title;
-        iframe.src = getPdfViewerUrl(url);
+        iframe.src = url;
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
@@ -1012,7 +1075,10 @@
         if (event.key === 'Escape') closePDFModal();
     });
     
-    // Language-specific brochure opener
+    // =================== PDF URLS ===================
+    const pdfUrlEn = "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf&embedded=true";
+    const pdfUrlEs = "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve%20Spanish.pdf&embedded=true";
+    
     let currentLangForPDF = 'en';
     
     function openBrochure() {
@@ -1166,7 +1232,7 @@
     let currentLang = 'en';
     function updateLanguage(lang) {
         currentLang = lang;
-        currentLangForPDF = lang; // Update PDF language
+        currentLangForPDF = lang;
         document.getElementById('currentLang').innerText = lang.toUpperCase();
         const t = translations[lang];
         document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (t[key]) el.innerHTML = t[key]; });
@@ -1206,7 +1272,6 @@
     inquiryBtns.forEach(id => { const btn = document.getElementById(id); if(btn) btn.addEventListener('click', (e) => { e.preventDefault(); modalElem.style.display = 'flex'; }); });
     document.getElementById('closeModalBtn').addEventListener('click', () => modalElem.style.display = 'none');
     window.addEventListener('click', (e) => { if(e.target === modalElem) modalElem.style.display = 'none'; });
-    document.getElementById('inquiryForm').addEventListener('submit', (e) => { e.preventDefault(); alert(currentLang === 'en' ? 'Thank you! A SunDrop Canita specialist will contact you within 24 hours.' : '¡Gracias! Un especialista de SunDrop Canita lo contactará en 24 horas.'); modalElem.style.display = 'none'; e.target.reset(); });
     
     document.querySelectorAll('.section-transition, .stagger-children').forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); });
 </script>
