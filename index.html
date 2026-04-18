@@ -271,8 +271,15 @@
             font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-tagline {
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
         .hero-subtitle {
             color: rgba(255,255,255,0.95);
@@ -313,6 +320,7 @@
             .hero-overlay { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
             .hero-text { max-width: 100%; margin-bottom: 30px; }
             .hero-overlay h1 { font-size: 1.8rem; }
+            .hero-tagline { font-size: 1rem; }
             .hero-subtitle { font-size: 1rem; }
             .hero-description { font-size: 0.85rem; }
             .brochure-btn { padding: 10px 20px; font-size: 0.85rem; margin-bottom: 0; }
@@ -338,6 +346,13 @@
             margin-bottom: 25px;
             letter-spacing: 1px;
             animation: glowPulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .pre-sale-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 94, 0, 0.3);
         }
         .pre-sale-section h2 {
             font-size: 2.5rem;
@@ -617,6 +632,7 @@
             <div class="hero-overlay">
                 <div class="hero-text">
                     <h1 id="heroTitle">Live Naturally. <br>Live with Purpose.</h1>
+                    <div class="hero-tagline" id="heroTagline">🌿 Our Rainforest, Your Paradise 🌿</div>
                     <div class="hero-subtitle" id="heroSubtitle">SunDrop Canita at Canita Reserve, Panama</div>
                     <div class="hero-description" id="heroDescription">
                         Welcome to SunDrop Canita, an off-grid, self-sustainable community nestled in the lush Canita Reserve of Panama. 
@@ -629,9 +645,9 @@
             </div>
         </div>
 
-        <!-- Pre-Sale Section - New Separate Section -->
+        <!-- Pre-Sale Section - Clickable Badge -->
         <div class="pre-sale-section section-transition" id="preSaleSection">
-            <div class="pre-sale-badge pulse-animation">🔥 PRE-SALE NOW OPEN 🔥</div>
+            <div class="pre-sale-badge pulse-animation" id="preSaleBadge">🔥 PRE-SALE NOW OPEN 🔥</div>
             <h2>Live Naturally. Live with Purpose.</h2>
             <h3>SunDrop Canita at Canita Reserve, Panama</h3>
             <div class="pre-sale-description">
@@ -744,12 +760,14 @@
 <div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm"><input type="text" id="nameInput" placeholder="Full Name" required><input type="email" id="emailInput" placeholder="Email Address" required><textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea><button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button></form><p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p></div></div>
 
 <script>
-    // PDF URL - Open in same tab (not download)
-    const pdfUrl = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
+    // PDF URL - Using Google Docs Viewer for proper inline viewing
+    const pdfRawUrl = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
+    // Use Google Docs viewer to display PDF instead of downloading
+    const pdfViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(pdfRawUrl) + "&embedded=true";
     
-    // Function to open PDF in new tab (view, not download)
+    // Function to open PDF in viewer (not download)
     function openPDF() {
-        window.open(pdfUrl, '_blank');
+        window.open(pdfViewerUrl, '_blank');
     }
     
     // Hero section View Brochure button
@@ -762,6 +780,12 @@
     document.getElementById('footerBrochureLink').addEventListener('click', (e) => {
         e.preventDefault();
         openPDF();
+    });
+    
+    // Pre-Sale Badge click - opens inquiry form
+    document.getElementById('preSaleBadge').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('inquiryModal').style.display = 'flex';
     });
 
     // Render images array
@@ -840,14 +864,14 @@
     }
     setVideoSource(); window.addEventListener('resize', setVideoSource);
 
-    // Gallery - ONLY 6 images (3x2 grid)
+    // Gallery - 6 images with updated Ara-macao.jpg
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita Reserve", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
         { name: "Organic Farming", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Organic%20Farming1.jpg", fallback: "https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg" },
         { name: "Rainforest", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Rainforest%20.jpeg", fallback: "https://images.pexels.com/photos/1545293/pexels-photo-1545293.jpeg" },
         { name: "Monkeys & Birds", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Monkeys%20and%20Birds..jpg", fallback: "https://images.pexels.com/photos/47547/squirrel-monkey-amazon-monkey-animal-47547.jpeg" },
-        { name: "Canita View", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Ara-macao.jpg", fallback: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg" }
+        { name: "Ara Macao", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Ara-macao.jpg", fallback: "https://images.pexels.com/photos/2575317/pexels-photo-2575317.jpeg" }
     ];
     
     const galleryGrid = document.getElementById('galleryGrid');
@@ -888,6 +912,7 @@
         const t = translations[lang];
         document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (t[key]) el.innerHTML = t[key]; });
         document.getElementById('heroTitle').innerHTML = lang === 'en' ? 'Live Naturally. <br>Live with Purpose.' : 'Vive Naturalmente. <br>Vive con Propósito.';
+        document.getElementById('heroTagline').innerHTML = lang === 'en' ? '🌿 Our Rainforest, Your Paradise 🌿' : '🌿 Nuestra Selva, Tu Paraíso 🌿';
         document.getElementById('heroSubtitle').innerHTML = lang === 'en' ? 'SunDrop Canita at Canita Reserve, Panama' : 'SunDrop Canita en Reserva Canita, Panamá';
         document.getElementById('heroDescription').innerHTML = lang === 'en' ? 'Welcome to SunDrop Canita, an off-grid, self-sustainable community nestled in the lush Canita Reserve of Panama. Here, life flows at the pace of nature — alongside the river, among fruit trees and forest trails.' : 'Bienvenido a SunDrop Canita, una comunidad autosostenible fuera de la red ubicada en la exuberante Reserva Canita de Panamá. Aquí, la vida fluye al ritmo de la naturaleza, junto al río, entre árboles frutales y senderos forestales.';
         
