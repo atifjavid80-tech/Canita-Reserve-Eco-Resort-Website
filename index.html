@@ -670,8 +670,25 @@
         .social-icons { display: flex; gap: 20px; margin-top: 15px; }
         .social-icons a { font-size: 1.4rem; color: #cbdcd2; transition: all 0.3s ease; }
         .social-icons a:hover { color: #2d8c5a; transform: translateY(-5px) scale(1.1); }
-        .copyright { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #2a4034; font-size: 0.75rem; }
-        @media (max-width: 768px) { .footer-grid { flex-direction: column; gap: 30px; text-align: center; } .footer-section h4::after { left: 50%; transform: translateX(-50%); } .social-icons { justify-content: center; } }
+        .legal-boilerplate {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #2a4034;
+            font-size: 0.7rem;
+            color: #8fbc9a;
+            line-height: 1.6;
+        }
+        .legal-boilerplate p {
+            margin-bottom: 8px;
+        }
+        .copyright { text-align: center; margin-top: 24px; font-size: 0.7rem; color: #6b8c7a; }
+        @media (max-width: 768px) { 
+            .footer-grid { flex-direction: column; gap: 30px; text-align: center; } 
+            .footer-section h4::after { left: 50%; transform: translateX(-50%); } 
+            .social-icons { justify-content: center; }
+            .legal-boilerplate { font-size: 0.65rem; }
+        }
 
         /* Modal */
         .modal {
@@ -828,9 +845,8 @@
             </div>
         </div>
 
-        <!-- Gallery Section with Request Investment Deck Button ABOVE the heading -->
+        <!-- Gallery Section -->
         <div class="gallery-section section-transition" id="gallerySection">
-            <!-- Request Investment Deck Button - ABOVE Explore Canita Reserve heading -->
             <div style="text-align: center; margin-bottom: 30px;">
                 <a href="#" class="btn-outline" id="investBtnMainAbove" data-translate="investBtnText" style="font-size: 1rem; padding: 14px 40px;">Request Investment Deck</a>
             </div>
@@ -859,16 +875,22 @@
                 <div class="footer-logo-text">SunDrop RESORT</div>
                 <div class="footer-sub">CANITA RESERVE | CHEPO, PANAMA</div>
                 <p data-translate="footerAddress">Canita Reserve, Chepo District<br>Panamá, Republic of Panamá</p>
-                <p><i class="fas fa-phone-alt"></i> +507 833-1234<br><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
+                <p><i class="fas fa-envelope"></i> hello@sundropcanita.com</p>
                 <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" id="whatsappLink" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a href="#" id="footerBrochureLink"><i class="fas fa-file-pdf"></i> <span style="font-size:0.7rem; margin-left:5px;">Brochure</span></a>
                 </div>
             </div>
             <div class="footer-section"><h4 data-translate="footerExplore">Explore</h4><p><a href="#" id="footerEco">EcoHomes</a></p><p><a href="#" id="footerGlamp">Glamping Stays</a></p><p><a href="#" id="footerInvest">Investment</a></p><p><a href="#" id="footerAgro">Agroforestry</a></p></div>
-            <div class="footer-section"><h4 data-translate="footerLegal">Legal</h4><p>Privacy Policy</p><p>Terms of Service</p><p>© 2026 SunDrop Canita</p></div>
+            <div class="footer-section"><h4 data-translate="footerLegal">Legal</h4><p><a href="#">Privacy Policy</a></p><p><a href="#">Terms of Service</a></p><p><a href="#">Cookie Policy</a></p><p><a href="#">EULA</a></p></div>
+        </div>
+        <div class="legal-boilerplate">
+            <p>© 2026 SunDrop Resort. All rights reserved.</p>
+            <p>SunDrop Resort is a registered trademark of The BLO Group. All information contained herein is subject to change without notice.</p>
+            <p>This is not an offer to sell or solicitation of an offer to buy real estate in any jurisdiction where prior registration is required. Void where prohibited by law.</p>
+            <p>Prices, plans, dimensions, specifications, materials, and availability are subject to change without notice. Renderings are artist's conceptualizations and are not to scale.</p>
         </div>
         <div class="copyright">🌿 <span data-translate="footerTagline">"Our Rainforest, Your Paradise" — Regenerative luxury & forest preservation</span></div>
     </div>
@@ -878,6 +900,11 @@
 <div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm"><input type="text" id="nameInput" placeholder="Full Name" required><input type="email" id="emailInput" placeholder="Email Address" required><textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea><button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button></form><p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p></div></div>
 
 <script>
+    // WhatsApp link with number +1 (385) 222-8100
+    const whatsappNumber = "13852228100";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello%21%20I%27m%20interested%20in%20SunDrop%20Resort%20at%20Canita%20Reserve.%20Please%20share%20more%20information.`;
+    document.getElementById('whatsappLink').href = whatsappLink;
+    
     // PDF URL - Using Google Docs Viewer for proper inline viewing
     const pdfRawUrl = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
     const pdfViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(pdfRawUrl) + "&embedded=true";
