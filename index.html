@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ========== ALL CSS SAME AS YOUR ORIGINAL ========== */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +29,7 @@
             padding: 0 32px;
         }
 
-        /* ========== ENHANCED ANIMATIONS ========== */
+        /* ========== ANIMATIONS ========== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
@@ -143,7 +144,7 @@
         .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 
-        /* Header - Mobile optimized (Previous Working Style) */
+        /* Header - Mobile optimized */
         .site-header {
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -326,7 +327,7 @@
             .logo-area { gap: 4px; }
         }
 
-        /* Hero Section - Adjusted for better video visibility */
+        /* Hero Section */
         .hero-section {
             position: relative;
             margin: 5px 0 48px 0;
@@ -968,6 +969,58 @@
 <div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm"><input type="text" id="nameInput" placeholder="Full Name" required><input type="email" id="emailInput" placeholder="Email Address" required><textarea rows="3" id="msgInput" placeholder="Your message... (EcoHome, glamping or investment)"></textarea><button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button></form><p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p></div></div>
 
 <script>
+    // =================== PDF LANGUAGE SUPPORT ===================
+    // English PDF URL
+    const pdfUrlEn = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
+    // Spanish PDF URL
+    const pdfUrlEs = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve%20Spanish.pdf";
+    
+    // PDF Viewer URL Generator
+    function getPdfViewerUrl(url) {
+        return "https://docs.google.com/viewer?url=" + encodeURIComponent(url) + "&embedded=true";
+    }
+    
+    // PDF Modal Functions
+    function openPDF(title, url) {
+        const modal = document.getElementById('pdfModal');
+        const modalTitle = document.getElementById('pdfModalTitle');
+        const iframe = document.getElementById('pdfViewer');
+        
+        modalTitle.textContent = title;
+        iframe.src = getPdfViewerUrl(url);
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closePDFModal() {
+        const modal = document.getElementById('pdfModal');
+        const iframe = document.getElementById('pdfViewer');
+        
+        modal.style.display = 'none';
+        iframe.src = '';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const pdfModal = document.getElementById('pdfModal');
+        if (event.target == pdfModal) closePDFModal();
+    }
+    
+    // Escape key handler
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closePDFModal();
+    });
+    
+    // Language-specific brochure opener
+    let currentLangForPDF = 'en';
+    
+    function openBrochure() {
+        const title = currentLangForPDF === 'en' ? 'SunDrop Canita Brochure' : 'Folleto SunDrop Canita';
+        const pdfUrl = currentLangForPDF === 'en' ? pdfUrlEn : pdfUrlEs;
+        openPDF(title, pdfUrl);
+    }
+    
     // Twitter link
     document.getElementById('twitterLink').href = "https://x.com/SunDropCanita";
     
@@ -979,22 +1032,15 @@
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello%21%20I%27m%20interested%20in%20SunDrop%20Resort%20at%20Canita%20Reserve.%20Please%20share%20more%20information.`;
     document.getElementById('whatsappLink').href = whatsappLink;
     
-    // PDF URL - Using Google Docs Viewer for proper inline viewing
-    const pdfRawUrl = "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita%20Reserve.pdf";
-    const pdfViewerUrl = "https://docs.google.com/viewer?url=" + encodeURIComponent(pdfRawUrl) + "&embedded=true";
-    
-    function openPDF() {
-        window.open(pdfViewerUrl, '_blank');
-    }
-    
+    // Brochure buttons
     document.getElementById('viewBrochureBtn').addEventListener('click', (e) => {
         e.preventDefault();
-        openPDF();
+        openBrochure();
     });
     
     document.getElementById('footerBrochureLink').addEventListener('click', (e) => {
         e.preventDefault();
-        openPDF();
+        openBrochure();
     });
     
     document.getElementById('preSaleBadge').addEventListener('click', (e) => {
@@ -1077,7 +1123,7 @@
     }
     setVideoSource(); window.addEventListener('resize', setVideoSource);
 
-    // Gallery Items with CORRECTED NAMES
+    // Gallery Items
     const galleryItems = [
         { name: "Lake Bayano", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Lake%20Bayano.jpg", fallback: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" },
         { name: "Canita Reserve", url: "https://raw.githubusercontent.com/atifjavid80-tech/Canita-Reserve-Eco-Resort-Website/refs/heads/main/Canita.jpg", fallback: "https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg" },
@@ -1120,6 +1166,7 @@
     let currentLang = 'en';
     function updateLanguage(lang) {
         currentLang = lang;
+        currentLangForPDF = lang; // Update PDF language
         document.getElementById('currentLang').innerText = lang.toUpperCase();
         const t = translations[lang];
         document.querySelectorAll('[data-translate]').forEach(el => { const key = el.getAttribute('data-translate'); if (t[key]) el.innerHTML = t[key]; });
@@ -1140,16 +1187,14 @@
     const langSelector = document.getElementById('langSelector');
     langSelector.addEventListener('click', (e) => { e.stopPropagation(); langSelector.classList.toggle('active'); });
     
-    // Fix: Close dropdown when language is selected
     document.querySelectorAll('[data-lang]').forEach(btn => { 
         btn.addEventListener('click', (e) => { 
             e.preventDefault(); 
             updateLanguage(btn.getAttribute('data-lang')); 
-            langSelector.classList.remove('active'); // Close dropdown after selection
+            langSelector.classList.remove('active');
         }); 
     });
     
-    // Close dropdown when clicking outside
     document.addEventListener('click', (e) => { 
         if (!langSelector.contains(e.target)) {
             langSelector.classList.remove('active');
@@ -1157,7 +1202,7 @@
     });
 
     const modalElem = document.getElementById('inquiryModal');
-    const inquiryBtns = ['inquiryBtn', 'investBtnMain', 'investBtnMainAbove', 'discoveryBtn', 'footerEco', 'footerGlamp', 'footerInvest', 'footerAgro'];
+    const inquiryBtns = ['inquiryBtn', 'investBtnMainAbove', 'discoveryBtn', 'footerEco', 'footerGlamp', 'footerInvest', 'footerAgro'];
     inquiryBtns.forEach(id => { const btn = document.getElementById(id); if(btn) btn.addEventListener('click', (e) => { e.preventDefault(); modalElem.style.display = 'flex'; }); });
     document.getElementById('closeModalBtn').addEventListener('click', () => modalElem.style.display = 'none');
     window.addEventListener('click', (e) => { if(e.target === modalElem) modalElem.style.display = 'none'; });
