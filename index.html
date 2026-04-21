@@ -1030,13 +1030,16 @@
 </footer>
 
 <div id="renderModal" class="render-modal"><span class="close-render" id="closeRenderBtn">&times;</span><div class="render-nav"><span id="prevRender"><i class="fas fa-chevron-left"></i></span><span id="nextRender"><i class="fas fa-chevron-right"></i></span></div><div class="render-modal-content"><img id="renderImage" src="" alt="Render"></div></div>
-<div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3><form id="inquiryForm" action="https://formsubmit.co/info@sundropresortcanita.com" method="POST">
+<div id="inquiryModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3><i class="fas fa-envelope"></i> <span data-translate="modalTitle">Inquire about SunDrop Canita</span></h3>
+<!-- ✅ FIXED FORM - DNS ERROR SOLVED -->
+<form id="inquiryForm" action="https://formsubmit.co/info@sundropresortcanita.com" method="POST">
     <input type="text" id="nameInput" name="name" placeholder="Full Name" required>
     <input type="email" id="emailInput" name="email" placeholder="Email Address" required>
     <textarea rows="3" id="msgInput" name="message" placeholder="Your message... (EcoHome, glamping or investment)"></textarea>
     <input type="hidden" name="_subject" value="New Lead from SunDrop Resort Website!">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://sundropresortscanita.com/thank-you.html">
+    <!-- 🔥 FIX: Ab dead domain par nahi jayega - same page par redirect hoga -->
+    <input type="hidden" name="_next" value="https://sundropresortcanita.com/thank-you">
     <button type="submit" class="btn-primary" style="width:100%;" data-translate="sendBtn">Send Request</button>
 </form>
 <p style="margin-top: 16px;" data-translate="responseText">We'll respond within 24h.</p>
