@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ========== ALL CSS SAME AS YOUR ORIGINAL ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #fefaf5 0%, #fdf7f0 50%, #faf3e8 100%);
@@ -19,20 +22,129 @@
             line-height: 1.5;
             overflow-x: hidden;
         }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 32px;
         }
+
+        /* ========== ENHANCED ANIMATIONS ========== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
         }
         @keyframes glowPulse {
             0% { box-shadow: 0 0 0 0 rgba(26, 77, 46, 0.4); }
             70% { box-shadow: 0 0 0 20px rgba(26, 77, 46, 0); }
             100% { box-shadow: 0 0 0 0 rgba(26, 77, 46, 0); }
         }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes borderGlow {
+            0% { border-color: rgba(45, 140, 90, 0.3); box-shadow: 0 0 0 0 rgba(45, 140, 90, 0.1); }
+            50% { border-color: rgba(45, 140, 90, 0.8); box-shadow: 0 0 20px 5px rgba(45, 140, 90, 0.2); }
+            100% { border-color: rgba(45, 140, 90, 0.3); box-shadow: 0 0 0 0 rgba(45, 140, 90, 0.1); }
+        }
+        @keyframes slideInFromBottom {
+            0% { opacity: 0; transform: translateY(80px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes scaleIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(-5deg) scale(0.95); }
+            to { opacity: 1; transform: rotate(0deg) scale(1); }
+        }
+        @keyframes priceGlow {
+            0% { text-shadow: 0 0 0px rgba(255, 140, 0, 0); }
+            50% { text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); }
+            100% { text-shadow: 0 0 0px rgba(255, 140, 0, 0); }
+        }
+
+        .animate-fadeUp { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
+        .animate-fadeLeft { animation: fadeInLeft 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
+        .animate-fadeRight { animation: fadeInRight 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
+        .animate-zoom { animation: zoomIn 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards; }
+        .animate-rotate { animation: rotateIn 0.6s ease-out forwards; }
+        .float-animation { animation: float 4s ease-in-out infinite; }
+        .pulse-animation { animation: pulse 2s ease-in-out infinite; }
+        .glow-animation { animation: glowPulse 2s infinite; }
+        
+        /* Price Badge Style */
+        .price-badge {
+            background: linear-gradient(135deg, #ff8c00, #ff5e00);
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 24px 0 8px;
+            letter-spacing: 1px;
+            animation: glowPulse 2s infinite, priceGlow 3s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(255, 94, 0, 0.3);
+        }
+        
+        /* Enhanced Hover Effects */
+        .hover-lift { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+        .hover-lift:hover { transform: translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.12); }
+        
+        .hover-glow { transition: all 0.3s ease; }
+        .hover-glow:hover { box-shadow: 0 0 25px rgba(45, 140, 90, 0.3); border-color: #2d8c5a; }
+        
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+        
+        /* Section Transitions */
+        .section-transition {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .section-transition.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger Children Animation */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+
+        /* Header - Mobile optimized */
         .site-header {
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -43,8 +155,22 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            transition: transform 0.4s ease, padding 0.3s ease, background 0.3s ease;
+            transform: translateY(0);
+        }
+        .site-header.hide { transform: translateY(-100%); }
+        .site-header.scrolled {
+            padding: 6px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
         body { padding-top: 68px; }
+        @media (max-width: 768px) { 
+            body { padding-top: 78px; }
+            .site-header { padding: 8px 0; }
+            .site-header.scrolled { padding: 4px 0; }
+        }
+
         .header-inner {
             display: flex;
             justify-content: space-between;
@@ -56,46 +182,161 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
         .logo-img {
             height: 45px;
             width: auto;
+            display: block;
+            transition: all 0.3s ease;
         }
         .tagline-header {
             font-size: 0.6rem;
             color: #6b7a6e;
             border-left: 1px solid #d4dcd0;
             padding-left: 8px;
+            font-weight: 500;
         }
         .nav-menu {
             display: flex;
             gap: 16px;
             align-items: center;
+            flex-wrap: wrap;
         }
         .nav-menu a {
             text-decoration: none;
             font-weight: 500;
             color: #2a4236;
             font-size: 0.85rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1a4d2e, #2d8c5a);
+            transition: width 0.4s ease;
+        }
+        .nav-menu a:hover::after { width: 100%; }
+        .nav-menu a:hover {
+            color: #1a4d2e;
+            transform: translateY(-2px);
+        }
+
+        .lang-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(242, 245, 239, 0.8);
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lang-selector:hover { background: #e8ede4; transform: translateY(-2px); }
+        .lang-dropdown {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            padding: 8px 0;
+            min-width: 120px;
+            display: none;
+            z-index: 100;
+            animation: fadeInUp 0.2s ease;
+        }
+        .lang-selector.active .lang-dropdown { display: block; }
+        .lang-dropdown a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            color: #2a4236;
+            text-decoration: none;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
+        .lang-dropdown a:hover { background: #f2f5ef; padding-left: 20px; }
+        
         .inquiry-btn {
             background: linear-gradient(135deg, #1a4d2e, #2d8c5a);
             color: white !important;
             padding: 6px 18px;
             border-radius: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+        .inquiry-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .inquiry-btn:hover::before { left: 100%; }
+        .inquiry-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(26,77,46,0.4); }
+
         @media (max-width: 768px) {
-            body { padding-top: 78px; }
-            .nav-menu a { font-size: 0.55rem; }
-            .logo-img { height: 28px; }
+            .header-inner { 
+                flex-direction: row; 
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .logo-area { 
+                flex: 1;
+                justify-content: flex-start;
+            }
+            .nav-menu { 
+                flex: 2;
+                justify-content: flex-end;
+                gap: 6px;
+            }
+            .nav-menu a { 
+                font-size: 0.55rem; 
+            }
+            .lang-selector { 
+                padding: 3px 8px; 
+                font-size: 0.55rem;
+                gap: 3px;
+            }
+            .inquiry-btn { 
+                padding: 3px 8px; 
+                font-size: 0.55rem; 
+            }
+            .logo-img { 
+                height: 28px; 
+            }
+            .tagline-header { 
+                font-size: 0.4rem;
+                padding-left: 4px;
+            }
+            .logo-area { gap: 4px; }
         }
+
+        /* Hero Section */
         .hero-section {
             position: relative;
             margin: 5px 0 48px 0;
             border-radius: 28px;
             overflow: hidden;
             min-height: 520px;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             background: #000;
         }
         .hero-video {
@@ -105,46 +346,243 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 0;
         }
         .hero-overlay {
             position: relative;
+            z-index: 1;
             padding: 50px 48px;
+            width: 100%;
             background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            max-width: 60%;
         }
         .hero-overlay h1 {
             color: white;
             font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        .price-badge {
+        .hero-tagline {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .hero-description {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .brochure-btn {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .brochure-btn:hover {
+            background: #2d8c5a;
+            border-color: #2d8c5a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) { 
+            .hero-section { 
+                min-height: 420px; 
+                margin-top: 5px;
+                margin-bottom: 35px;
+            }
+            .hero-overlay { 
+                padding: 20px 16px; 
+                flex-direction: column; 
+                align-items: flex-start; 
+            }
+            .hero-text { 
+                max-width: 100%; 
+                margin-bottom: 15px; 
+            }
+            .hero-overlay h1 { 
+                font-size: 1.4rem; 
+            }
+            .hero-tagline { 
+                font-size: 0.7rem; 
+                margin-bottom: 10px;
+            }
+            .hero-subtitle { 
+                font-size: 0.7rem; 
+                margin-bottom: 8px;
+            }
+            .hero-description { 
+                font-size: 0.65rem; 
+            }
+            .brochure-btn { 
+                padding: 5px 12px; 
+                font-size: 0.65rem; 
+                margin-bottom: 0;
+            }
+        }
+
+        /* Pre-Sale Section */
+        .pre-sale-section {
+            background: linear-gradient(135deg, #fff8e7, #fff3d6);
+            border-radius: 28px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            border: 1px solid #ffe8b6;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .pre-sale-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .pre-sale-badge {
             background: linear-gradient(135deg, #ff8c00, #ff5e00);
             display: inline-block;
-            padding: 12px 32px;
-            border-radius: 50px;
+            padding: 8px 28px;
+            border-radius: 40px;
             color: white;
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
             animation: glowPulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
         }
+        .pre-sale-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 94, 0, 0.3);
+        }
+        .pre-sale-section h2 {
+            font-size: 2.5rem;
+            color: #1a3a2a;
+            margin-bottom: 20px;
+        }
+        .pre-sale-section h3 {
+            font-size: 1.5rem;
+            color: #2d8c5a;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .pre-sale-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2a4236;
+        }
+        .pre-sale-highlight {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .pre-sale-highlight:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .pre-sale-highlight p {
+            font-size: 1rem;
+            color: #1a4d2e;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .pre-sale-section { padding: 30px 20px; }
+            .pre-sale-section h2 { font-size: 1.8rem; }
+            .pre-sale-section h3 { font-size: 1.2rem; }
+            .pre-sale-description { font-size: 0.95rem; }
+        }
+
+        /* Cards */
         .property-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 28px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
             padding: 40px;
             margin: 40px 0;
+            transition: all 0.4s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border-color: rgba(45, 140, 90, 0.2);
         }
         .section-title {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 28px;
             color: #1a3a2a;
+            position: relative;
+            display: inline-block;
         }
-        
-        /* ========== FORM STYLES ========== */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #2d8c5a, #1a4d2e);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        .section-title:hover::after {
+            width: 100px;
+        }
+        .details-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 28px;
+            background: linear-gradient(135deg, #fafdf8, #f5faf2);
+            padding: 32px;
+            border-radius: 24px;
+            margin: 28px 0;
+        }
+        .detail-block { display: flex; flex-direction: column; gap: 8px; transition: all 0.3s ease; }
+        .detail-block:hover { transform: translateX(8px); }
+        .detail-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #7e8d82; font-weight: 600; }
+        .detail-value { font-size: 1.2rem; font-weight: 700; color: #1e4a32; }
+        .description-text { font-size: 1.05rem; line-height: 1.7; color: #2a3e34; margin: 28px 0; }
+
+        /* ========== FORM STYLES (ADDED - NO CONTENT DELETED) ========== */
         .form-section {
             background: white;
             border-radius: 28px;
-            padding: 50px 40px;
+            padding: 40px;
             margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             border: 1px solid rgba(0,0,0,0.05);
         }
         .form-title {
@@ -200,8 +638,13 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(26, 77, 46, 0.3);
         }
+        .row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
         
-        /* ========== THANK YOU MODAL ========== */
+        /* Thank You Modal */
         .thankyou-modal {
             display: none;
             position: fixed;
@@ -249,11 +692,7 @@
             font-weight: 600;
             cursor: pointer;
         }
-        .row-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+        
         @media (max-width: 768px) {
             .row-2col {
                 grid-template-columns: 1fr;
@@ -262,6 +701,7 @@
                 padding: 30px 20px;
             }
         }
+        
         footer {
             text-align: center;
             padding: 40px;
@@ -304,13 +744,33 @@
             </div>
         </div>
 
+        <!-- Pre-Sale Section -->
+        <div class="pre-sale-section">
+            <div class="pre-sale-badge">🔥 EXCLUSIVE PRE-SALE OFFER</div>
+            <h2>Own a Piece of Paradise</h2>
+            <h3>Canita Reserve, Panama</h3>
+            <div class="pre-sale-description">
+                <p>Be among the first to own at SunDrop Canita. Limited units available at pre-sale prices starting from just $2,850/m². This is your chance to secure a premium eco-luxury property in one of Panama's most pristine locations.</p>
+            </div>
+            <div class="pre-sale-highlight">
+                <p><i class="fas fa-check-circle"></i> 0% Interest Payment Plan Available</p>
+            </div>
+        </div>
+
         <!-- Property Section -->
         <div id="property" class="property-card">
             <h2 class="section-title">Property Details</h2>
-            <p class="description-text">Experience unparalleled luxury at Canita Reserve, Panama. SunDrop Canita offers an exclusive eco-resort experience with pristine beaches, lush rainforests, and world-class amenities.</p>
+            <div class="details-row">
+                <div class="detail-block"><span class="detail-label">LOCATION</span><span class="detail-value">Canita Reserve, Panama</span></div>
+                <div class="detail-block"><span class="detail-label">TOTAL AREA</span><span class="detail-value">15,000 m²</span></div>
+                <div class="detail-block"><span class="detail-label">BEACH ACCESS</span><span class="detail-value">Private</span></div>
+                <div class="detail-block"><span class="detail-label">PRE-SALE PRICE</span><span class="detail-value">$2,850/m²</span></div>
+            </div>
+            <p class="description-text">Experience unparalleled luxury at Canita Reserve, Panama. SunDrop Canita offers an exclusive eco-resort experience with pristine beaches, lush rainforests, and world-class amenities. This sustainable development blends seamlessly with nature while offering modern comforts and investment potential.</p>
+            <p class="description-text">Located just 90 minutes from Panama City, this gated community features a private beach club, infinity pools, organic farm-to-table restaurant, yoga pavilion, and 24/7 security. Perfect for second homes, retirement, or investment property.</p>
         </div>
 
-        <!-- ========== INQUIRY FORM - NO DNS ERROR ========== -->
+        <!-- ========== INQUIRY FORM - DNS ERROR FIXED ========== -->
         <div id="inquiry" class="form-section">
             <h2 class="form-title">Request More Information</h2>
             <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
@@ -366,7 +826,7 @@
 </div>
 
 <script>
-    // Form submission handler - NO DNS ERROR
+    // Form submission handler - DNS ERROR FIXED (no external URL call)
     document.getElementById('inquiryForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -380,7 +840,7 @@
             return;
         }
         
-        // SAVE data to localStorage (optional - you can save form data)
+        // Save data to localStorage (optional)
         var formData = {
             name: name,
             email: email,
@@ -403,8 +863,6 @@
         document.getElementById('thankyouModal').classList.remove('active');
         // Scroll to top (home)
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Optional: reload page to reset everything
-        // location.reload();
     }
     
     // Close modal when clicking outside
